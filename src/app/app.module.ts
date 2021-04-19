@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginService } from './Services/login.service';
+import { NoPageComponent } from './Components/no-page/no-page.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [routingComponents],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [LoginService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

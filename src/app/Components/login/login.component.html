@@ -1,0 +1,60 @@
+<div
+  class="container rounded border shadow mycol animate__animated animate__fadeInDown animate__fast mt-5"
+>
+  <form>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <img
+        src="../../../assets/login.png"
+        class="img-fluid h-50 w-50 align-self-center"
+      />
+      <div class="form-group w-auto">
+        <label for="user">User Name :</label>
+        <div class="input-group flex-grow-1">
+          <div class="input-group-prepend">
+            <i class="input-group-text bi bi-person-circle"></i>
+          </div>
+          <input
+            type="text  "
+            class="form-control input-group"
+            id="user"
+            placeholder="Enter User Name"
+          />
+        </div>
+      </div>
+      <div class="form-group w-auto flex-grow-1">
+        <label for="exampleInputPassword1">Password :</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="input-group-text bi bi-asterisk"></i>
+          </div>
+          <input
+            type="password"
+            class="form-control input-group"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+        </div>
+      </div>
+      <button
+        class="btn btn-secondary mt-5 mb-3"
+        (click)="login()"
+        *ngIf="!status"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- 
+<button class="btn btn-light mb-3" (click)="login()" *ngIf="!status">
+          Login
+        </button> -->
+
+<!-- <div class="row justify-content-center">
+    <div class="col-2">
+      <button class="btn btn-light" (click)="logut()" *ngIf="status">
+        Logout
+      </button>
+    </div>
+  </div> -->

@@ -1,0 +1,13 @@
+.navbar {
+  background: rgba(245, 245, 247, 0.85);
+  z-index: 5;
+}
+
+.dropdown-menu {
+  background: rgba(245, 245, 247, 1);
+}
+
+.navbar a:hover {
+  animation: pulse; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 10s;
+}
