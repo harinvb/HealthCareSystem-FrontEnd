@@ -3,7 +3,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
-import { User } from '../Components/Interfaces/user';
+import { User } from '../Interfaces/user';
 
 @Injectable({
   providedIn: 'root',

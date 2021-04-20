@@ -88,6 +88,15 @@
           >Test Result</a
         >
       </li>
+      <li class="nav-item">
+        <a
+          class="nav-link text-dark user-select-none"
+          role="button"
+          tabindex="-1"
+          *ngIf="loggerRole == 'ADMIN'"
+          >Register Another Admin</a
+        >
+      </li>
       <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle text-dark user-select-none"
