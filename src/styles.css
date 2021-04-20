@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,700;1,400&display=swap");
+
 .mycol {
   background: rgba(245, 245, 247, 0.904);
+}
+
+body {
+  font-family: "Alegreya", serif !important;
 }

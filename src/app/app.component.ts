@@ -16,11 +16,14 @@ export class AppComponent implements OnInit {
   constructor(public log: LoginService, private routes: Router) {}
 
   ngOnInit() {
-    this.log.logEvent.subscribe((u) => {
-      this.loginStatus = u.loggedIn;
-      this.loggerRole = u.role;
-      if (this.loggerRole == 'ADMIN') this.routes.navigateByUrl('appointments');
-    });
+    this.log.logEvent
+      .subscribe((u) => {
+        this.loginStatus = u.loggedIn;
+        this.loggerRole = u.role;
+        if (this.loggerRole == 'ADMIN')
+          this.routes.navigateByUrl('appointments');
+      })
+      .unsubscribe();
   }
 
   logout() {
