@@ -1,7 +1,8 @@
 <nav
-  class="navbar navbar-expand-xl rounded border shadow animate__animated animate__fadeInDown animate__fast"
+  class="navbar navbar-expand-xl rounded border shadow-sm animate__animated animate__fadeInDown animate__fast"
+  (window:beforeunload)="logout()"
 >
-  <a class="navbar-brand ml-2">
+  <a class="navbar-brand">
     <h4 class="text-dark user-select-none">Health Care System</h4>
   </a>
   <button
@@ -15,71 +16,79 @@
 
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           role="button"
-          class="nav-link text-dark user-select-none ml-2"
+          class="nav-link text-dark user-select-none"
           *ngIf="loggerRole == 'user'"
           routerLink="home"
           routerLinkActive="active"
           >Home</a
         >
       </li>
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           role="button"
           class="nav-link text-dark user-select-none"
           *ngIf="loggerRole == 'user'"
-          >Book Appointment</a
+          >Book an Appointment</a
         >
       </li>
-
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           role="button"
           class="nav-link text-dark user-select-none"
-          *ngIf="loggerRole == 'admin'"
+          *ngIf="loggerRole == 'user' && loginStatus"
+          >Edit Patient Profile</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a
+          role="button"
+          class="nav-link text-dark user-select-none"
+          *ngIf="loggerRole == 'ADMIN'"
           >Verify Appointments</a
         >
       </li>
 
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           class="nav-link text-dark user-select-none"
           role="button"
           tabindex="-1"
-          *ngIf="loggerRole == 'admin'"
+          *ngIf="loggerRole == 'ADMIN'"
           >Patient Details</a
         >
       </li>
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           class="nav-link text-dark user-select-none"
           role="button"
           tabindex="-1"
-          *ngIf="loggerRole == 'admin'"
+          *ngIf="loggerRole == 'ADMIN'"
           >Diagnostic Center</a
         >
       </li>
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           class="nav-link text-dark user-select-none"
           role="button"
           tabindex="-1"
-          *ngIf="loggerRole == 'admin'"
+          *ngIf="loggerRole == 'ADMIN'"
           >Diagnostic Test</a
         >
       </li>
-      <li class="nav-item ml-2">
+      <li class="nav-item">
         <a
           class="nav-link text-dark user-select-none"
           role="button"
           tabindex="-1"
-          *ngIf="loggerRole == 'admin'"
+          *ngIf="loggerRole == 'ADMIN'"
           >Test Result</a
         >
       </li>
-      <li class="nav-item dropdown ml-2">
+      <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle text-dark user-select-none"
           id="navbarDropdown"
@@ -102,16 +111,17 @@
         </div>
       </li>
     </ul>
-    <button class="btn btn-info ml-2" *ngIf="!loginStatus">Sign Up</button>
+
+    <button class="btn btn-info mr-2" *ngIf="!loginStatus">Sign Up</button>
     <button
-      class="btn btn-success ml-2"
+      class="btn btn-success"
       *ngIf="!loginStatus"
       routerLink="login"
       routerLinkActive="active"
     >
       Sign In
     </button>
-    <button class="btn btn-danger ml-2" *ngIf="loginStatus" (click)="logout()">
+    <button class="btn btn-danger" *ngIf="loginStatus" (click)="logout()">
       Sign Out
     </button>
   </div>

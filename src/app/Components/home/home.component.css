@@ -1,3 +1,11 @@
 .carousel-item {
   margin-left: 25%;
 }
+
+.footerbg {
+  background-color: rgba(148, 150, 151, 0.63);
+}
+
+.jumbotron {
+  background-image: url("../../../assets/History-wordle.jpg");
+}

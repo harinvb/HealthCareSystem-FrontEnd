@@ -1,7 +1,7 @@
 <div
-  class="container rounded border shadow mycol animate__animated animate__fadeInDown animate__fast mt-5"
+  class="container rounded border shadow mycol animate__animated animate__fadeInDown animate__fast"
 >
-  <form>
+  <form [formGroup]="formgrp" (ngSubmit)="login()">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <img
         src="../../../assets/login.png"
@@ -18,6 +18,7 @@
             class="form-control input-group"
             id="user"
             placeholder="Enter User Name"
+            formControlName="username"
           />
         </div>
       </div>
@@ -32,13 +33,14 @@
             class="form-control input-group"
             id="exampleInputPassword1"
             placeholder="Password"
+            formControlName="password"
           />
         </div>
       </div>
       <button
         class="btn btn-secondary mt-5 mb-3"
-        (click)="login()"
-        *ngIf="!status"
+        type="submit"
+        [disabled]="formgrp.invalid"
       >
         Login
       </button>
