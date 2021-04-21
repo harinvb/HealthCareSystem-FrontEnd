@@ -63,4 +63,8 @@ export class LoginService {
   get Status() {
     return this.user.loggedIn;
   }
+
+  get userid() {
+    return this.user.userid;
+  }
 }

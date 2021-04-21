@@ -4,6 +4,12 @@ import { LoginComponent } from './Components/login/login.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { NoPageComponent } from './Components/no-page/no-page.component';
+import { AppointmentComponent } from './Components/Appointment/Appointment.component';
+import { PatientComponent } from './Components/Patient/Patient.component';
+import { AdminControlComponent } from './Components/AdminControl/AdminControl.component';
+import { DiagnosticCenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
+import { DiagnosticTestComponent } from './Components/DiagnosticTest/DiagnosticTest.component';
+import { TestResultComponent } from './Components/TestResult/TestResult.component';
 
 const routes: Routes = [
   {
@@ -12,12 +18,36 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'appointment',
+    component: AppointmentComponent,
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'patient',
+    component: PatientComponent,
+  },
+  {
+    path: 'testresult',
+    component: TestResultComponent,
+  },
+  {
+    path: 'diagnostictest',
+    component: DiagnosticTestComponent,
+  },
+  {
+    path: 'diagnosticcenter',
+    component: DiagnosticCenterComponent,
+  },
+  {
+    path: 'admincontrol',
+    component: AdminControlComponent,
   },
   {
     path: '**',
@@ -35,4 +65,9 @@ export const routingComponents = [
   AppComponent,
   HomeComponent,
   NoPageComponent,
+  AdminControlComponent,
+  DiagnosticCenterComponent,
+  DiagnosticTestComponent,
+  TestResultComponent,
+  PatientComponent,
 ];

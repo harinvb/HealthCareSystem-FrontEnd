@@ -19,12 +19,20 @@ export class AppComponent implements OnInit {
     this.log.logEvent.subscribe((u) => {
       this.loginStatus = u.loggedIn;
       this.loggerRole = u.role;
-      if (this.loggerRole == 'ADMIN') this.routes.navigateByUrl('appointments');
+      if (this.loggerRole == 'ADMIN') this.routes.navigateByUrl('appointment');
     });
   }
 
   logout() {
     alert('You are About to be Logged Out');
     this.log.logout();
+  }
+
+  appointment() {
+    if (this.loginStatus) {
+      this.routes.navigateByUrl('appointment');
+    } else {
+      this.routes.navigateByUrl('login');
+    }
   }
 }
