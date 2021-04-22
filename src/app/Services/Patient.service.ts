@@ -6,5 +6,6 @@ import { LoginService } from './login.service';
   providedIn: 'root',
 })
 export class PatientService {
+  patientId: number = 100;
   constructor(private http: HttpClient, private log: LoginService) {}
 }

@@ -35,6 +35,17 @@
           >Book an Appointment</a
         >
       </li>
+
+      <li class="nav-item">
+        <a
+          role="button"
+          class="nav-link text-dark user-select-none"
+          *ngIf="loggerRole == 'user' && loginStatus"
+          routerLink="viewappointment"
+          routerLinkActive="active"
+          >View My Appointments</a
+        >
+      </li>
       <li class="nav-item">
         <a
           role="button"
@@ -45,7 +56,6 @@
           >Edit Patient Profile</a
         >
       </li>
-
       <li class="nav-item">
         <a
           role="button"

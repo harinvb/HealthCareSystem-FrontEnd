@@ -10,6 +10,8 @@ import { AdminControlComponent } from './Components/AdminControl/AdminControl.co
 import { DiagnosticCenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
 import { DiagnosticTestComponent } from './Components/DiagnosticTest/DiagnosticTest.component';
 import { TestResultComponent } from './Components/TestResult/TestResult.component';
+import { ViewAppointmentsComponent } from './Components/Appointment/Children/ViewAppointments/ViewAppointments.component';
+import { CreateAppointmentComponent } from './Components/Appointment/Children/CreateAppointment/CreateAppointment.component';
 
 const routes: Routes = [
   {
@@ -18,8 +20,18 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'viewappointment',
+    component: ViewAppointmentsComponent,
+  },
+  {
     path: 'appointment',
     component: AppointmentComponent,
+    children: [
+      {
+        path: 'createappointment',
+        component: CreateAppointmentComponent,
+      },
+    ],
   },
   {
     path: 'login',
@@ -70,4 +82,7 @@ export const routingComponents = [
   DiagnosticTestComponent,
   TestResultComponent,
   PatientComponent,
+  AppointmentComponent,
+  CreateAppointmentComponent,
+  ViewAppointmentsComponent,
 ];

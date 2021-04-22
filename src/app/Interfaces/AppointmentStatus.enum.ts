@@ -1,5 +1,5 @@
 export enum AppointmentStatus {
-  statusnotapproved,
+  statusnotapproved = 1,
   approved,
   cancelled,
 }

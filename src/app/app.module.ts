@@ -18,5 +18,6 @@ import { PatientService } from './Services/Patient.service';
   ],
   providers: [LoginService, PatientService],
   bootstrap: [AppComponent],
+  exports: [routingComponents],
 })
 export class AppModule {}
