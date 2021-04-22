@@ -25,13 +25,25 @@
       </div>
       <div class="col">Address : {{ i.diagnosticCenter.address }}</div>
     </div>
+    <div class="card-footer" *ngIf="check(i.approvalStatus) == 2">
+      <h5 class="card-title">Tests Results :</h5>
+      <div class="row" *ngFor="let tr of i.testResult">
+        <div class="col-4">{{ tr.testName }}</div>
+        <div class="col-4">Reading : {{ tr.testReading }}</div>
+        <div class="col-4">Condition : {{ tr.testcondition }}</div>
+      </div>
+    </div>
     <div
       class="card-footer"
-      *ngIf="i.diagnosticTests != null && i.diagnosticTests.length > 0"
+      *ngIf="
+        i.diagnosticTests != null &&
+        i.diagnosticTests.length > 0 &&
+        !(check(i.approvalStatus) == 2)
+      "
     >
       <h5 class="card-title">Tests Opted For :</h5>
-      <div class="card-text" *ngFor="let dt of i.diagnosticTests">
-        {{ dt.testName }}
+      <div class="d-inline-flex" *ngFor="let dt of i.diagnosticTests;let in = index">
+        <p [ngClass]="{'mr-3' : in!=1}"> {{ dt.testName }}</p>
       </div>
     </div>
   </div>

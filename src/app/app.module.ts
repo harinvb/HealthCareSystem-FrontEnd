@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginService } from './Services/login.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientService } from './Services/Patient.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [routingComponents],
@@ -15,6 +16,7 @@ import { PatientService } from './Services/Patient.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [LoginService, PatientService],
   bootstrap: [AppComponent],

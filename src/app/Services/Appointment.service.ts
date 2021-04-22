@@ -41,6 +41,23 @@ export class AppointmentService {
     );
   }
 
+  verifyAppointment(app: Appointment) {
+    return this.http
+      .put<Appointment>('http://localhost:8888/Appointment/verify', app)
+      .pipe(catchError(this.handleError));
+  }
+
+  rejectAppointment(app: Appointment) {
+    return this.http
+      .put<Appointment>('http://localhost:8888/Appointment/reject',  app)
+      .pipe(catchError(this.handleError));
+  }
+  getVerifiableAppointments() {
+    return this.http
+      .get<Appointment[]>('http://localhost:8888/Appointment/getVerifiable')
+      .pipe(catchError(this.handleError));
+  }
+
   getAppointments(patientId: number): Observable<Appointment[]> {
     return this.http
       .get<Appointment[]>(

@@ -12,6 +12,7 @@ import { DiagnosticTestComponent } from './Components/DiagnosticTest/DiagnosticT
 import { TestResultComponent } from './Components/TestResult/TestResult.component';
 import { ViewAppointmentsComponent } from './Components/Appointment/Children/ViewAppointments/ViewAppointments.component';
 import { CreateAppointmentComponent } from './Components/Appointment/Children/CreateAppointment/CreateAppointment.component';
+import { VerifyAppointmentComponent } from './Components/Appointment/Children/VerifyAppointment/VerifyAppointment.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'createappointment',
         component: CreateAppointmentComponent,
+      },
+      {
+        path: 'verifyappointment',
+        component: VerifyAppointmentComponent,
       },
     ],
   },
@@ -85,4 +90,5 @@ export const routingComponents = [
   AppointmentComponent,
   CreateAppointmentComponent,
   ViewAppointmentsComponent,
+  VerifyAppointmentComponent,
 ];

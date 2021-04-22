@@ -8,7 +8,7 @@ export interface Appointment {
 
   appointmentDate: Date;
 
-  approvalStatus: AppointmentStatus;
+  approvalStatus: string;
 
   diagnosticTests: DiagnosticTest[];
 
