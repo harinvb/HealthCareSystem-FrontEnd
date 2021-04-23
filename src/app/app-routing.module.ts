@@ -13,6 +13,9 @@ import { TestResultComponent } from './Components/TestResult/TestResult.componen
 import { ViewAppointmentsComponent } from './Components/Appointment/Children/ViewAppointments/ViewAppointments.component';
 import { CreateAppointmentComponent } from './Components/Appointment/Children/CreateAppointment/CreateAppointment.component';
 import { VerifyAppointmentComponent } from './Components/Appointment/Children/VerifyAppointment/VerifyAppointment.component';
+import { UpdateAppointmentComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateAppointment.component';
+import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppointment/UAppForm/UAppForm.component';
+import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,10 @@ const routes: Routes = [
       {
         path: 'verifyappointment',
         component: VerifyAppointmentComponent,
+      },
+      {
+        path: 'updateappointments',
+        component: UpdateAppointmentComponent,
       },
     ],
   },
@@ -67,6 +74,14 @@ const routes: Routes = [
     component: AdminControlComponent,
   },
   {
+    path: 'Uapp',
+    component: UAppFormComponent,
+  },
+  {
+    path: 'UpdateEach',
+    component: UpdateEachComponent,
+  },
+  {
     path: '**',
     component: NoPageComponent,
   },
@@ -91,4 +106,7 @@ export const routingComponents = [
   CreateAppointmentComponent,
   ViewAppointmentsComponent,
   VerifyAppointmentComponent,
+  UpdateAppointmentComponent,
+  UAppFormComponent,
+  UpdateEachComponent,
 ];

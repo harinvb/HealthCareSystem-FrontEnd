@@ -4,15 +4,16 @@ import { AppointmentStatus } from 'src/app/Interfaces/AppointmentStatus.enum';
 import { AppointmentService } from 'src/app/Services/Appointment.service';
 
 @Component({
-  selector: 'app-VerifyAppointment',
-  templateUrl: './VerifyAppointment.component.html',
-  styleUrls: ['./VerifyAppointment.component.css'],
+  selector: 'app-UpdateAppointment',
+  templateUrl: './UpdateAppointment.component.html',
+  styleUrls: ['./UpdateAppointment.component.css'],
 })
-export class VerifyAppointmentComponent implements OnInit {
+export class UpdateAppointmentComponent implements OnInit {
   appointments!: Appointment[];
   hasAppointments = false;
   appstat!: AppointmentStatus;
   search: any;
+  addTest = false;
   constructor(private appServ: AppointmentService) {}
 
   ngOnInit() {
@@ -20,7 +21,7 @@ export class VerifyAppointmentComponent implements OnInit {
   }
 
   fetchApps() {
-    this.appServ.getVerifiableAppointments().subscribe(
+    this.appServ.getUpdatableAppointments().subscribe(
       (data) => {
         this.appointments = data;
         this.hasAppointments = true;
@@ -34,25 +35,7 @@ export class VerifyAppointmentComponent implements OnInit {
     );
   }
 
-  verify(app: Appointment) {
-    this.appServ.verifyAppointment(app).subscribe(
-      (data) => {
-        this.fetchApps();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  reject(app: Appointment) {
-    this.appServ.rejectAppointment(app).subscribe(
-      (data) => {
-        this.fetchApps();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  addTestResult() {
+    this.addTest = true;
   }
 }

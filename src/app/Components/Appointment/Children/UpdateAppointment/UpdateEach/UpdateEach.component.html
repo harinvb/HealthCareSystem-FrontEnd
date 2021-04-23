@@ -1,0 +1,62 @@
+<div class="card-header">
+  <div class="row">
+    <div class="col-6">
+      {{ appointment.appointmentDate | filter: search }}
+    </div>
+    <div class="col-5">
+      Appointment ID : {{ appointment.appointmentid | filter: search }}
+    </div>
+    <div class="col-1" data-toggle="tooltip" title="Add Test Results">
+      <button class="btn" (click)="addTestResult()">
+        <h5 class="bi bi-plus-circle-dotted pl-2 pr-2"></h5>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="card-columns mt-3 mb-3"
+  *ngIf="appointment.diagnosticCenter != null"
+>
+  <div class="col">
+    Diagnostic Center :&nbsp;
+    {{ appointment.diagnosticCenter.name | filter: search }}
+  </div>
+  <div class="col">
+    Email :&nbsp; {{ appointment.diagnosticCenter.contactEmail }}
+  </div>
+  <div class="col">
+    Contact No: &nbsp;+91
+    {{ appointment.diagnosticCenter.contactNo }}
+  </div>
+  <div class="col">
+    Address :&nbsp; {{ appointment.diagnosticCenter.address }}
+  </div>
+</div>
+<div
+  class="card-footer"
+  *ngIf="
+    appointment.diagnosticTests != null &&
+    appointment.diagnosticTests.length > 0
+  "
+>
+  <h5 class="card-title">Tests Opted For :</h5>
+  <div
+    class="card-text"
+    *ngFor="let dt of appointment.diagnosticTests | filter: search"
+  >
+    {{ dt.testName | filter: search }}
+  </div>
+</div>
+<div class="card-footer" *ngIf="appointment.testResult.length > 0">
+  <h5 class="card-title">Tests Results :</h5>
+  <div class="row" *ngFor="let tr of appointment.testResult">
+    <div class="col-4">{{ tr.testName }}</div>
+    <div class="col-4">Reading : {{ tr.testReading }}</div>
+    <div class="col-4">Condition : {{ tr.testcondition }}</div>
+  </div>
+</div>
+<app-UAppForm
+  *ngIf="addTest"
+  (testResultAddEvent)="testResAdded($event)"
+></app-UAppForm>

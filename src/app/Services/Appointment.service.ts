@@ -41,6 +41,14 @@ export class AppointmentService {
     );
   }
 
+  getUpdatableAppointments() {
+    return this.http
+      .get<Appointment[]>(
+        'http://localhost:8888/Appointment/getWithNoTestResults'
+      )
+      .pipe(catchError(this.handleError));
+  }
+
   verifyAppointment(app: Appointment) {
     return this.http
       .put<Appointment>('http://localhost:8888/Appointment/verify', app)

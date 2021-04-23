@@ -67,12 +67,21 @@
       </li>
       <li class="nav-item">
         <a
+          role="button"
+          class="nav-link text-dark user-select-none"
+          *ngIf="loggerRole == 'ADMIN'"
+          routerLink="updateappointments"
+          >Update Appointments</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
           class="nav-link text-dark user-select-none"
           role="button"
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
           routerLink="diagnosticcenter"
-          >Add Diagnostic Center</a
+          > Diagnostic Center</a
         >
       </li>
       <li class="nav-item">
@@ -82,7 +91,7 @@
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
           routerLink="diagnostictest"
-          >Add Diagnostic Test</a
+          > Diagnostic Test</a
         >
       </li>
       <li class="nav-item">
@@ -92,7 +101,7 @@
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
           routerLink="testresult"
-          >Add Test Result</a
+          > Test Result</a
         >
       </li>
       <li class="nav-item">

@@ -1,0 +1,25 @@
+<div
+  class="container mt-5 justify-content-center animate__animated animate__fadeInDown"
+  *ngIf="hasAppointments; else noapps"
+>
+  <div class="col-4 input-group">
+    <input
+      type="text"
+      [(ngModel)]="search"
+      class="form-control mb-3"
+      placeholder="Search By Appointment Id,Date,Center"
+    />
+  </div>
+  <div
+    class="card mb-5 rounded border shadow-sm"
+    *ngFor="let i of appointments | filter: search"
+  >
+    <app-UpdateEach [appointment]="i"></app-UpdateEach>
+  </div>
+</div>
+
+<ng-template #noapps>
+  <div class="container">
+    <h1 class="text-muted text-center">You Have No Appointments To verify</h1>
+  </div>
+</ng-template>
