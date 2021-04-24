@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-expand-xl rounded border shadow-sm animate__animated animate__fadeInDown animate__fast"
+  class="navbar navbar-expand-xl rounded border shadow-sm animate__animated animate__fadeIn"
   (window:beforeunload)="logout()"
 >
   <a class="navbar-brand">
@@ -41,7 +41,7 @@
           role="button"
           class="nav-link text-dark user-select-none"
           *ngIf="loggerRole == 'user' && loginStatus"
-          routerLink="viewappointment"
+          routerLink="appointment/viewappointment"
           routerLinkActive="active"
           >View My Appointments</a
         >
@@ -61,7 +61,7 @@
           role="button"
           class="nav-link text-dark user-select-none"
           *ngIf="loggerRole == 'ADMIN'"
-          routerLink="appointment"
+          routerLink="appointment/verifyappointment"
           >Verify Appointments</a
         >
       </li>
@@ -70,7 +70,7 @@
           role="button"
           class="nav-link text-dark user-select-none"
           *ngIf="loggerRole == 'ADMIN'"
-          routerLink="updateappointments"
+          routerLink="appointment/updateappointments"
           >Update Appointments</a
         >
       </li>
@@ -81,7 +81,8 @@
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
           routerLink="diagnosticcenter"
-          > Diagnostic Center</a
+        >
+          Diagnostic Center</a
         >
       </li>
       <li class="nav-item">
@@ -91,7 +92,8 @@
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
           routerLink="diagnostictest"
-          > Diagnostic Test</a
+        >
+          Diagnostic Test</a
         >
       </li>
       <li class="nav-item">
@@ -101,7 +103,8 @@
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
           routerLink="testresult"
-          > Test Result</a
+        >
+          Test Result</a
         >
       </li>
       <li class="nav-item">

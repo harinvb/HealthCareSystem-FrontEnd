@@ -16,6 +16,7 @@ import { VerifyAppointmentComponent } from './Components/Appointment/Children/Ve
 import { UpdateAppointmentComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateAppointment.component';
 import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppointment/UAppForm/UAppForm.component';
 import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
+import { UpdateComponent } from './Components/Patient/Update/Update.component';
 
 const routes: Routes = [
   {
@@ -24,16 +25,22 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'viewappointment',
-    component: ViewAppointmentsComponent,
-  },
-  {
     path: 'appointment',
     component: AppointmentComponent,
+
     children: [
+      {
+        path: '',
+        redirectTo: 'verifyappointment',
+        pathMatch: 'full',
+      },
       {
         path: 'createappointment',
         component: CreateAppointmentComponent,
+      },
+      {
+        path: 'viewappointment',
+        component: ViewAppointmentsComponent,
       },
       {
         path: 'verifyappointment',
@@ -109,4 +116,5 @@ export const routingComponents = [
   UpdateAppointmentComponent,
   UAppFormComponent,
   UpdateEachComponent,
+  UpdateComponent,
 ];

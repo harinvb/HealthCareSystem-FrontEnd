@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { DiagnosticCenter } from 'src/app/Interfaces/DiagnosticCenter';
 import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
 import { AppointmentService } from 'src/app/Services/Appointment.service';
@@ -24,7 +30,7 @@ export class CreateAppointmentComponent implements OnInit {
     private formBuild: FormBuilder
   ) {
     this.appform = this.formBuild.group({
-      appointmentDate: ['', [Validators.required]],
+      appointmentDate: [null, [Validators.required, this.date()]],
       diagnosticTests: ['', Validators.required],
       diagnosticCenter: ['', Validators.required],
     });
@@ -41,7 +47,12 @@ export class CreateAppointmentComponent implements OnInit {
     );
   }
 
+  get AppDate() {
+    return this.appform.get('appointmentDate');
+  }
+
   submitAppointment() {
+    console.log(this.appform.value);
     this.appServ
       .addAppointment(
         this.appform.get('appointmentDate')?.value,
@@ -71,7 +82,13 @@ export class CreateAppointmentComponent implements OnInit {
     this.preDCtests = DC?.tests!;
   }
 
-  checkDate() {
-    this.validDate = this.appform.get('appointmentDate')?.value >= this.today;
+  date(): ValidatorFn {
+    return (control: AbstractControl) =>
+      new Date(control.value) >= this.today
+        ? null
+        : {
+            wrongDate:
+              'Please Pick A Date from This Day On ' + this.today.toString(),
+          };
   }
 }

@@ -15,6 +15,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { TestResult } from 'src/app/Interfaces/TestResult';
+import { TestResultService } from 'src/app/Services/TestResult.service';
 
 @Component({
   selector: 'app-UAppForm',
@@ -26,7 +27,10 @@ export class UAppFormComponent implements OnInit {
   testRes!: TestResult;
   @Output('testResultAddEvent')
   testResultAddEvent: EventEmitter<TestResult> = new EventEmitter();
-  constructor(private formBuild: FormBuilder) {}
+  constructor(
+    private formBuild: FormBuilder,
+    private testResServ: TestResultService
+  ) {}
 
   ngOnInit() {
     this.testAddForm = this.formBuild.group({
@@ -39,7 +43,16 @@ export class UAppFormComponent implements OnInit {
     return this.testAddForm.get('testName');
   }
   submit() {
-    console.log(this.testAddForm.value as TestResult);
-    this.testResultAddEvent.emit(this.testAddForm.value as TestResult);
+    this.testRes = this.testAddForm.value as TestResult;
+    this.testResServ.addTestResult(this.testRes).subscribe(
+      (data) => {
+        this.testRes = data;
+        this.testResultAddEvent.emit(this.testRes);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this.testAddForm.reset();
   }
 }

@@ -1,7 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Event, Router, RouterLink } from '@angular/router';
-import { User } from './Interfaces/user';
-import { LoginComponent } from './Components/login/login.component';
 import { LoginService } from './Services/login.service';
 
 @Component({
@@ -29,12 +27,11 @@ export class AppComponent implements OnInit {
       this.loginStatus = u.loggedIn;
       this.loggerRole = u.role;
       if (this.loggerRole == 'ADMIN') this.routes.navigateByUrl('appointment');
-      this.log.logEvent.unsubscribe();
     });
   }
   appointment() {
     if (this.loginStatus) {
-      this.routes.navigateByUrl('appointment');
+      this.routes.navigateByUrl('appointment/createappointment');
     } else {
       this.routes.navigateByUrl('login');
     }

@@ -27,7 +27,6 @@ export class TestResultService {
   constructor(private httpClient: HttpClient) {}
 
   addTestResult(testres: TestResult): Observable<TestResult> {
-    console.log(testres);
     return this.httpClient
       .post<TestResult>(
         this.url + '/testresult/addresult',

@@ -1,1 +1,15 @@
-<p>Patient works!</p>
+<div class="container mt-5 mycol" *ngIf="!update && patient != null">
+  <div class="row justify-content-center">
+    <h4 class="col-12 text-left">Patient Name : {{ patient.name }}</h4>
+    <h4 class="col-12 text-left">Age : {{ patient.age }}</h4>
+    <h4 class="col-12 text-left">Phone No : {{ patient.phoneNo }}</h4>
+    <h4 class="col-12 text-left">Gender : {{ patient.gender }}</h4>
+    <button class="btn btn-primary mb-3" (click)="updateDetails()">
+      Update Details
+    </button>
+  </div>
+</div>
+
+<div *ngIf="update">
+  <app-Update [patient]="patient"></app-Update>
+</div>

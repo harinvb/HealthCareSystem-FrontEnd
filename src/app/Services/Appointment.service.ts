@@ -8,6 +8,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Appointment } from '../Interfaces/Appointment';
 import { DiagnosticCenter } from '../Interfaces/DiagnosticCenter';
+import { Patient } from '../Interfaces/patient';
+import { TestResult } from '../Interfaces/TestResult';
 import { PatientService } from './Patient.service';
 
 @Injectable({
@@ -41,12 +43,28 @@ export class AppointmentService {
     );
   }
 
+  getAllAppointments() {
+    return this.http
+      .get<Appointment[]>('http://localhost:8888/Appointment/getAll')
+      .pipe(catchError(this.handleError));
+  }
+
   getUpdatableAppointments() {
     return this.http
       .get<Appointment[]>(
         'http://localhost:8888/Appointment/getWithNoTestResults'
       )
       .pipe(catchError(this.handleError));
+  }
+
+  addTestResult(appointmentId: number, testResId: number) {
+    return this.http.put<TestResult>(
+      'http://localhost:8888/Appointment/addTestRes/' +
+        appointmentId +
+        '/' +
+        testResId,
+      null
+    );
   }
 
   verifyAppointment(app: Appointment) {
@@ -57,7 +75,7 @@ export class AppointmentService {
 
   rejectAppointment(app: Appointment) {
     return this.http
-      .put<Appointment>('http://localhost:8888/Appointment/reject',  app)
+      .put<Appointment>('http://localhost:8888/Appointment/reject', app)
       .pipe(catchError(this.handleError));
   }
   getVerifiableAppointments() {

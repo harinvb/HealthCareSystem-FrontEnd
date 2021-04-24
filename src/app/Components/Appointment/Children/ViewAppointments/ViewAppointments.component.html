@@ -34,16 +34,15 @@
       </div>
     </div>
     <div
-      class="card-footer"
-      *ngIf="
-        i.diagnosticTests != null &&
-        i.diagnosticTests.length > 0 &&
-        !(check(i.approvalStatus) == 2)
-      "
+      class="card-body"
+      *ngIf="i.diagnosticTests != null && i.diagnosticTests.length > 0"
     >
       <h5 class="card-title">Tests Opted For :</h5>
-      <div class="d-inline-flex" *ngFor="let dt of i.diagnosticTests;let in = index">
-        <p [ngClass]="{'mr-3' : in!=1}"> {{ dt.testName }}</p>
+      <div class="row" *ngFor="let dt of i.diagnosticTests; let in = index">
+        <div class="col-3">Test Name :{{ dt.testName }}</div>
+        <div class="col-3">units: {{ dt.units }}</div>
+        <div class="col-3">Normal Value : {{ dt.normalValue }}</div>
+        <div class="col-3">Test Price : {{ dt.testPrice }}</div>
       </div>
     </div>
   </div>

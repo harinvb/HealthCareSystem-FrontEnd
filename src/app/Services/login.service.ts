@@ -13,26 +13,24 @@ export class LoginService {
   @Output('logEvent') logEvent: EventEmitter<User> = new EventEmitter();
   constructor(private http: HttpClient, private routes: Router) {}
 
-  login(username: string, password: string): Observable<User> {
-
+  login(username: string, password: string) {
+    if (username != null) {
       return this.http
         .post<User>('http://localhost:8888/Login', {
           username: username,
           password: password,
         })
         .pipe(catchError(this.handleError));
-    
-    
+    }
+    return;
   }
 
   logout(): void {
-    console.log('Inside Service');
     this.http
       .post<User>('http://localhost:8888/Logout', this.user)
       .pipe(catchError(this.handleError))
       .subscribe(
         (data) => {
-          console.log(data);
           this.User = data;
           this.user.role = 'user';
           this.Status = false;
@@ -56,8 +54,6 @@ export class LoginService {
 
   set User(user: User) {
     this.user = user;
-    console.log('Inside service');
-    console.log(this.user);
   }
   set Status(status: boolean) {
     this.user.loggedIn = status;

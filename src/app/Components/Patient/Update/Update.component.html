@@ -1,0 +1,59 @@
+<div
+  class="container rounded border text-center shadow mycol animate__animated animate__fadeInDown animate__fast mt-5"
+>
+  <form [formGroup]="patientForm" (ngSubmit)="saveDetails()" class="form">
+    <img
+      src="../../../assets/details.png"
+      class="img-fluid align-self-center mb-3"
+    />
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="form-group">
+        <label for="name">Patient Name&nbsp;&nbsp; &nbsp;&nbsp;</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          placeholder="Enter Patient Full Name"
+          formControlName="Name"
+        />
+      </div>
+      <div class="form-group p-1">
+        <label for="age">Person Age&nbsp;&nbsp; &nbsp;&nbsp;</label>
+        <input
+          type="number"
+          id="age"
+          class="form-control"
+          placeholder="Age"
+          formControlName="Age"
+        />
+      </div>
+      <div class="form-group p-1">
+        <label for="PhoneNo">PhoneNo&nbsp;&nbsp; &nbsp;&nbsp;</label>
+        <input
+          type="text"
+          id="PhoneNo"
+          class="form-control"
+          placeholder="Phone Number"
+          formControlName="PhoneNo"
+        />
+      </div>
+      <div class="form-group p-1">
+        <label for="Gender">Gender&nbsp;&nbsp; &nbsp;&nbsp;</label>
+        <input
+          type="text"
+          id="Gender"
+          class="form-control"
+          placeholder="Gender"
+          formControlName="Gender"
+        />
+      </div>
+      <button
+        class="btn btn-secondary mt-1 mb-3"
+        type="submit"
+        [disabled]="patientForm.invalid"
+      >
+        Save Details
+      </button>
+    </div>
+  </form>
+</div>

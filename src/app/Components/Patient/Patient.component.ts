@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Patient } from 'src/app/Interfaces/patient';
 import { PatientService } from 'src/app/Services/Patient.service';
 
 @Component({
@@ -7,7 +9,24 @@ import { PatientService } from 'src/app/Services/Patient.service';
   styleUrls: ['./Patient.component.css'],
 })
 export class PatientComponent implements OnInit {
-  constructor(private patientServ: PatientService) {}
+  @Output('patient') patient!: Patient;
+  update = false;
+  constructor(private patServ: PatientService) {}
+  ngOnInit() {
+    this.getPatient();
+  }
 
-  ngOnInit() {}
+  getPatient() {
+    this.patServ.getByUserID()?.subscribe(
+      (data) => {
+        this.patient = data;
+        if (this.patient == null) this.update = true;
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  updateDetails() {
+    this.update = !this.update;
+  }
 }

@@ -27,6 +27,7 @@ export class VerifyAppointmentComponent implements OnInit {
         this.appointments.sort(
           (x, y) => +new Date(y.appointmentDate) - +new Date(x.appointmentDate)
         );
+        if (this.appointments.length == 0) this.hasAppointments = false;
       },
       (error) => {
         console.log(error);

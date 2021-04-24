@@ -9,8 +9,8 @@ import { PatientService } from './Services/Patient.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CenterService } from './Services/DiagnosticCenter.service';
 import { AppointmentService } from './Services/Appointment.service';
-import { DiagnosticTestService } from './Services/diagnostictest.service';
 import { TestResultService } from './Services/TestResult.service';
+import { DiagnosticTestService } from './Services/DiagnosticTest.service';
 
 @NgModule({
   declarations: [routingComponents],
