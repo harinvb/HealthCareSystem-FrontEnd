@@ -34,13 +34,13 @@ export class LoginComponent implements OnInit {
         (data) => {
           this.log.User = data;
           this.log.Status = true;
+          this.routes.navigate(['home']);
         },
         (error) => {
           console.log(error);
           this.log.Status = false;
         }
       );
-    this.routes.navigate(['home']);
   }
 
   logout() {

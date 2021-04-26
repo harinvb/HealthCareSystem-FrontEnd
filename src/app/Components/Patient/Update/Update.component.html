@@ -14,7 +14,7 @@
           id="name"
           class="form-control"
           placeholder="Enter Patient Full Name"
-          formControlName="Name"
+          formControlName="name"
         />
       </div>
       <div class="form-group p-1">
@@ -24,7 +24,7 @@
           id="age"
           class="form-control"
           placeholder="Age"
-          formControlName="Age"
+          formControlName="age"
         />
       </div>
       <div class="form-group p-1">
@@ -34,18 +34,16 @@
           id="PhoneNo"
           class="form-control"
           placeholder="Phone Number"
-          formControlName="PhoneNo"
+          formControlName="phoneNo"
         />
       </div>
       <div class="form-group p-1">
         <label for="Gender">Gender&nbsp;&nbsp; &nbsp;&nbsp;</label>
-        <input
-          type="text"
-          id="Gender"
-          class="form-control"
-          placeholder="Gender"
-          formControlName="Gender"
-        />
+        <select id="Gender" formControlName="gender" class="custom-select">
+          <option value="null" selected disabled>Choose Gender :</option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+        </select>
       </div>
       <button
         class="btn btn-secondary mt-1 mb-3"

@@ -1,13 +1,34 @@
-<div class="container mt-5 mycol" *ngIf="!update && patient != null">
-  <div class="row justify-content-center">
-    <h4 class="col-12 text-left">Patient Name : {{ patient.name }}</h4>
-    <h4 class="col-12 text-left">Age : {{ patient.age }}</h4>
-    <h4 class="col-12 text-left">Phone No : {{ patient.phoneNo }}</h4>
-    <h4 class="col-12 text-left">Gender : {{ patient.gender }}</h4>
-    <button class="btn btn-primary mb-3" (click)="updateDetails()">
-      Update Details
-    </button>
+<div
+  class="container justify-content-center mt-5 mycol"
+  *ngIf="!update && patient != null"
+>
+  <div class="row justify-content-center text-center">
+    <img src="assets/user.png" class="img-fluid" />
   </div>
+  <table class="table">
+    <tr>
+      <th class="text-left">Patient Name :</th>
+      <th>{{ patient.name }}</th>
+    </tr>
+    <tr>
+      <th class="text-left">Age :</th>
+      <th>{{ patient.age }}</th>
+    </tr>
+    <tr>
+      <th class="text-left">Phone No :</th>
+      <th>{{ patient.phoneNo }}</th>
+    </tr>
+    <tr>
+      <th class="text-left">Gender :</th>
+      <th>{{ patient.gender }}</th>
+    </tr>
+  </table>
+  <button
+    class="btn btn-primary mt-5 mb-3 align-self-center"
+    (click)="updateDetails()"
+  >
+    Update Details
+  </button>
 </div>
 
 <div *ngIf="update">

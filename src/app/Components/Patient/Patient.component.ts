@@ -21,6 +21,10 @@ export class PatientComponent implements OnInit {
       (data) => {
         this.patient = data;
         if (this.patient == null) this.update = true;
+        else {
+          this.patServ.Patient = this.patient;
+          this.patServ.patientId = this.patient.patientId;
+        }
       },
       (error) => console.log(error)
     );

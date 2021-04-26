@@ -6,9 +6,11 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DiagnosticCenter } from 'src/app/Interfaces/DiagnosticCenter';
 import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
 import { AppointmentService } from 'src/app/Services/Appointment.service';
+import { PatientService } from 'src/app/Services/Patient.service';
 
 @Component({
   selector: 'app-CreateAppointment',
@@ -27,7 +29,9 @@ export class CreateAppointmentComponent implements OnInit {
 
   constructor(
     private appServ: AppointmentService,
-    private formBuild: FormBuilder
+    private formBuild: FormBuilder,
+    private patServ: PatientService,
+    private routes: Router
   ) {
     this.appform = this.formBuild.group({
       appointmentDate: [null, [Validators.required, this.date()]],
@@ -37,14 +41,18 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appServ.getAllCenters().subscribe(
-      (data) => {
-        this.dignosticCenters = data;
-      },
-      (error) => {
-        this.errormsg = error;
-      }
-    );
+    if (this.patServ.Patient != null) {
+      this.appServ.getAllCenters().subscribe(
+        (data) => {
+          this.dignosticCenters = data;
+        },
+        (error) => {
+          this.errormsg = error;
+        }
+      );
+    } else {
+      this.routes.navigateByUrl('/patient');
+    }
   }
 
   get AppDate() {

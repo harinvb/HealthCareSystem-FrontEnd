@@ -23,18 +23,21 @@ export class ViewAppointmentsComponent implements OnInit {
   }
 
   fetchApps() {
-    this.appServ.getAppointments(this.patServ.patientId).subscribe(
-      (data) => {
-        this.appointments = data;
-        this.hasAppointments = true;
-        this.appointments.sort(
-          (x, y) => +new Date(y.appointmentDate) - +new Date(x.appointmentDate)
-        );
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    if (this.patServ.patientId != null) {
+      this.appServ.getAppointments(this.patServ.patientId).subscribe(
+        (data) => {
+          this.appointments = data;
+          this.hasAppointments = true;
+          this.appointments.sort(
+            (x, y) =>
+              +new Date(y.appointmentDate) - +new Date(x.appointmentDate)
+          );
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   check(stat: any) {

@@ -42,8 +42,13 @@ export class LoginService {
       );
   }
 
-  handleError(response: HttpErrorResponse) {
-    return throwError(response);
+  handleError(eResponse: HttpErrorResponse) {
+    if (eResponse.status == 0) {
+      return throwError(
+        'Server Side Error Will Get Back To You as Early As Possible'
+      );
+    }
+    return throwError(eResponse.error.message);
   }
   emit() {
     this.logEvent.emit(this.user);

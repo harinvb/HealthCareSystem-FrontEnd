@@ -9,11 +9,16 @@ import { LoginService } from './login.service';
   providedIn: 'root',
 })
 export class PatientService implements OnInit {
-  patientId: number = 100;
+  patientId!: number;
   patient!: Patient;
   constructor(private http: HttpClient, private log: LoginService) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getByUserID();
+  }
 
+  set Patient(pat: Patient) {
+    this.patient = pat;
+  }
   get Patient() {
     return this.patient;
   }
@@ -29,6 +34,42 @@ export class PatientService implements OnInit {
     return;
   }
 
+  updatePatient(
+    patientId: number,
+    name: string,
+    gender: string,
+    phoneNo: string,
+    age: number
+  ) {
+    if (this.log.userid != null) {
+      return this.http
+        .put<Patient>('http://localhost:8888/patient/updatepatient', {
+          patientId: patientId,
+          name: name,
+          gender: gender,
+          phoneNo: phoneNo,
+          age: age,
+        })
+        .pipe(catchError(this.handleError));
+    }
+    return;
+  }
+  registerPatient(name: string, gender: string, phoneNo: string, age: number) {
+    if (this.log.userid != null) {
+      return this.http
+        .post<Patient>(
+          'http://localhost:8888/patient/registerpatient/' + this.log.userid,
+          {
+            name: name,
+            gender: gender,
+            phoneNo: phoneNo,
+            age: age,
+          }
+        )
+        .pipe(catchError(this.handleError));
+    }
+    return;
+  }
   handleError(eResponse: HttpErrorResponse) {
     if (eResponse.error instanceof ErrorEvent) {
       console.log('Client Side Error =' + eResponse.error.message);
