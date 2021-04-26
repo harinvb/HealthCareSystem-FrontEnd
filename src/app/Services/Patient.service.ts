@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, shareReplay } from 'rxjs/operators';
 import { Patient } from '../Interfaces/patient';
 import { LoginService } from './login.service';
 
@@ -24,14 +24,11 @@ export class PatientService implements OnInit {
   }
 
   getByUserID() {
-    if (this.log.userid != null) {
-      return this.http
-        .get<Patient>(
-          'http://localhost:8888/patient/viewpatient/' + this.log.userid
-        )
-        .pipe(catchError(this.handleError));
-    }
-    return;
+    return this.http
+      .get<Patient>(
+        'http://localhost:8888/patient/viewpatient/' + this.log.userid
+      )
+      .pipe(catchError(this.handleError), shareReplay());
   }
 
   updatePatient(
@@ -41,18 +38,15 @@ export class PatientService implements OnInit {
     phoneNo: string,
     age: number
   ) {
-    if (this.log.userid != null) {
-      return this.http
-        .put<Patient>('http://localhost:8888/patient/updatepatient', {
-          patientId: patientId,
-          name: name,
-          gender: gender,
-          phoneNo: phoneNo,
-          age: age,
-        })
-        .pipe(catchError(this.handleError));
-    }
-    return;
+    return this.http
+      .put<Patient>('http://localhost:8888/patient/updatepatient', {
+        patientId: patientId,
+        name: name,
+        gender: gender,
+        phoneNo: phoneNo,
+        age: age,
+      })
+      .pipe(catchError(this.handleError));
   }
   registerPatient(name: string, gender: string, phoneNo: string, age: number) {
     if (this.log.userid != null) {

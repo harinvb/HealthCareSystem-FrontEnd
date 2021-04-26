@@ -2,7 +2,7 @@ export class User {
   userid!: number;
   private _username!: string;
   private _password!: string;
-  private _role: string = 'user';
+  private _role: string = 'ADMIN';
   private _isLoggedIn: boolean = false;
 
   public get username(): string {

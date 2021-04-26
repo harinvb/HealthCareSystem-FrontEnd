@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Patient } from 'src/app/Interfaces/patient';
 import { PatientService } from 'src/app/Services/Patient.service';
 
@@ -12,7 +14,13 @@ export class UpdateComponent implements OnInit {
   @Input('patient') patient!: Patient;
   newPatient = false;
   patientForm!: FormGroup;
-  constructor(private formBuild: FormBuilder, private patServ: PatientService) {
+  @Output('updatedEvent')
+  updatedEvent: EventEmitter<Patient> = new EventEmitter();
+  constructor(
+    private formBuild: FormBuilder,
+    private patServ: PatientService,
+    private routes: Router
+  ) {
     this.patientForm = this.formBuild.group({
       name: ['', Validators.required],
       gender: [null, Validators.required],
@@ -45,7 +53,7 @@ export class UpdateComponent implements OnInit {
         )
         ?.subscribe(
           (data) => {
-            console.log(data);
+            this.updatedEvent.emit(data);
           },
           (error) => {
             console.log(error);
@@ -61,7 +69,7 @@ export class UpdateComponent implements OnInit {
         )
         ?.subscribe(
           (data) => {
-            console.log(data);
+            this.updatedEvent.emit(data);
           },
           (error) => {
             console.log(error);

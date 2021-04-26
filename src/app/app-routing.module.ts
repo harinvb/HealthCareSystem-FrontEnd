@@ -17,6 +17,8 @@ import { UpdateAppointmentComponent } from './Components/Appointment/Children/Up
 import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppointment/UAppForm/UAppForm.component';
 import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
 import { UpdateComponent } from './Components/Patient/Update/Update.component';
+import { UserComponent } from './Components/User/User.component';
+import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
 
 const routes: Routes = [
   {
@@ -89,6 +91,10 @@ const routes: Routes = [
     component: UpdateEachComponent,
   },
   {
+    path: 'user',
+    component: UserComponent,
+  },
+  {
     path: '**',
     component: NoPageComponent,
   },
@@ -117,4 +123,6 @@ export const routingComponents = [
   UAppFormComponent,
   UpdateEachComponent,
   UpdateComponent,
+  UserComponent,
+  UserRegistrarionComponent,
 ];

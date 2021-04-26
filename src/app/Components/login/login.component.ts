@@ -25,22 +25,25 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.log
-      .login(
-        this.formgrp.get('username')?.value,
-        this.formgrp.get('password')?.value
-      )
-      ?.subscribe(
+    let username = this.formgrp.get('username')?.value;
+    let pass = this.formgrp.get('password')?.value;
+    if (username != null || username != '') {
+      this.log.login(username, pass)?.subscribe(
         (data) => {
           this.log.User = data;
           this.log.Status = true;
-          this.routes.navigate(['home']);
+          if (this.log.Role == 'user') {
+            this.routes.navigate(['appointment/viewappointment']);
+          } else {
+            this.routes.navigate(['appointment/verifyappointment']);
+          }
         },
         (error) => {
           console.log(error);
           this.log.Status = false;
         }
       );
+    }
   }
 
   logout() {

@@ -41,6 +41,7 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.patServ.getByUserID();
     if (this.patServ.Patient != null) {
       this.appServ.getAllCenters().subscribe(
         (data) => {

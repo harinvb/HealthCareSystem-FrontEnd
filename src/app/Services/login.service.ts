@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { catchError, finalize } from 'rxjs/operators';
+import { catchError, finalize, shareReplay, skip } from 'rxjs/operators';
 import { User } from '../Interfaces/user';
 
 @Injectable({
@@ -14,27 +14,24 @@ export class LoginService {
   constructor(private http: HttpClient, private routes: Router) {}
 
   login(username: string, password: string) {
-    if (username != null) {
-      return this.http
-        .post<User>('http://localhost:8888/Login', {
-          username: username,
-          password: password,
-        })
-        .pipe(catchError(this.handleError));
-    }
-    return;
+    return this.http
+      .post<User>('http://localhost:8888/Login', {
+        username: username,
+        password: password,
+      })
+      .pipe(catchError(this.handleError), shareReplay());
   }
 
   logout(): void {
     this.http
       .post<User>('http://localhost:8888/Logout', this.user)
-      .pipe(catchError(this.handleError))
+      .pipe(catchError(this.handleError), shareReplay())
       .subscribe(
         (data) => {
-          this.User = data;
+          this.User = new User();
           this.user.role = 'user';
           this.Status = false;
-          this.routes.navigateByUrl('home');
+          window.location.href = 'http://localhost:4200';
         },
         (error) => {
           console.log(error);

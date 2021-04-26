@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Event, Router, RouterLink } from '@angular/router';
 import { LoginService } from './Services/login.service';
 

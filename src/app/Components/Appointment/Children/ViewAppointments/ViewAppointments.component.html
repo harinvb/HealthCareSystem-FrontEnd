@@ -1,4 +1,13 @@
-<div class="container mt-5" *ngIf="hasAppointments; else noapps">
+<div
+  class="container animate__animated animate__fadeInDown"
+  *ngIf="!hasAppointments"
+>
+  <h1 class="text-muted text-center">You Have No Appointments</h1>
+</div>
+<div
+  class="container mt-5 animate__animated animate__fadeInDown"
+  *ngIf="hasAppointments"
+>
   <div
     class="card mb-5 rounded border shadow-sm"
     *ngFor="let i of appointments"
@@ -47,9 +56,3 @@
     </div>
   </div>
 </div>
-
-<ng-template #noapps>
-  <div class="container">
-    <h1 class="text-muted text-center">You Have No Appointments</h1>
-  </div>
-</ng-template>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Appointment } from 'src/app/Interfaces/Appointment';
 import { AppointmentStatus } from 'src/app/Interfaces/AppointmentStatus.enum';
 import { AppointmentService } from 'src/app/Services/Appointment.service';
@@ -11,11 +12,12 @@ import { PatientService } from 'src/app/Services/Patient.service';
 })
 export class ViewAppointmentsComponent implements OnInit {
   appointments!: Appointment[];
-  hasAppointments = false;
+  hasAppointments!: boolean;
   appstat!: AppointmentStatus;
   constructor(
     private appServ: AppointmentService,
-    private patServ: PatientService
+    private patServ: PatientService,
+    private routes: Router
   ) {}
 
   ngOnInit() {
@@ -23,21 +25,26 @@ export class ViewAppointmentsComponent implements OnInit {
   }
 
   fetchApps() {
-    if (this.patServ.patientId != null) {
-      this.appServ.getAppointments(this.patServ.patientId).subscribe(
-        (data) => {
-          this.appointments = data;
-          this.hasAppointments = true;
-          this.appointments.sort(
-            (x, y) =>
-              +new Date(y.appointmentDate) - +new Date(x.appointmentDate)
-          );
-        },
-        (error) => {
-          console.log(error);
+    this.patServ.getByUserID().subscribe(
+      (data) => {
+        if (data != null) {
+          this.appointments = data.appointments;
+          if (this.appointments != null && this.appointments.length != 0) {
+            this.hasAppointments = true;
+            this.appointments.sort(
+              (x, y) =>
+                +new Date(y.appointmentDate) - +new Date(x.appointmentDate)
+            );
+          }
+        } else {
+          this.routes.navigateByUrl('patient');
         }
-      );
-    }
+      },
+      (error) => {
+        this.hasAppointments = false;
+        console.log(error);
+      }
+    );
   }
 
   check(stat: any) {
