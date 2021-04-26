@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/Interfaces/user';
 import { LoginService } from 'src/app/Services/login.service';
 import { UserService } from 'src/app/Services/User.service';
 
@@ -9,30 +9,41 @@ import { UserService } from 'src/app/Services/User.service';
   styleUrls: ['./User.component.css'],
 })
 export class UserComponent implements OnInit {
-  userForm!: FormGroup;
-  constructor(
-    private formBuild: FormBuilder,
-    private userServ: UserService,
-    private logServ: LoginService
-  ) {}
+  users!: User[];
+  presentUser!: User;
+  updateReq = false;
+  constructor(private userServ: UserService, private logServ: LoginService) {}
 
   ngOnInit() {
-    this.userForm = this.formBuild.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      role: [this.Role, Validators.required],
-    });
-  }
-  get Role() {
-    return this.logServ.Role;
+    let users = this.getAllUsers();
+    if (this.logServ.Role == 'user') {
+      this.updateReq = true;
+    }
   }
 
-  submit() {
-    //call service
-    if (this.Role == 'ADMIN') {
-      console.log(this.userForm.value, 'ADMIN');
-    } else {
-      console.log(this.userForm.value, 'user');
-    }
+  getAllUsers() {
+    return this.userServ.getAll().subscribe(
+      (data) => {
+        this.users = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  deleteUser(id: number) {
+    this.userServ.deleteUser(id).subscribe(
+      (data) => {
+        this.getAllUsers();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  update(index: number) {
+    this.updateReq = true;
+    this.presentUser = this.users[index];
   }
 }

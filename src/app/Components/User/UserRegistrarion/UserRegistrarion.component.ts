@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/Interfaces/user';
 import { LoginService } from 'src/app/Services/login.service';
 import { UserService } from 'src/app/Services/User.service';
 
@@ -9,11 +11,13 @@ import { UserService } from 'src/app/Services/User.service';
   styleUrls: ['./UserRegistrarion.component.css'],
 })
 export class UserRegistrarionComponent implements OnInit {
+  @Input('user') user!: User;
   userForm!: FormGroup;
   constructor(
     private formBuild: FormBuilder,
     private userServ: UserService,
-    private logServ: LoginService
+    private logServ: LoginService,
+    private routes: Router
   ) {}
 
   ngOnInit() {
@@ -22,17 +26,50 @@ export class UserRegistrarionComponent implements OnInit {
       password: ['', Validators.required],
       role: [this.Role, Validators.required],
     });
+    if (this.user != null) {
+      this.userForm.setValue({
+        username: this.user.username,
+        password: this.user.password,
+        role: this.user.role,
+      });
+    }
   }
   get Role() {
     return this.logServ.Role;
   }
 
   submit() {
-    //call service
-    if (this.Role == 'ADMIN') {
-      console.log(this.userForm.value, 'ADMIN');
+    if (this.user == null) {
+      //update
+      if (this.Role == 'ADMIN' && this.userForm.get('role')?.value == 'ADMIN') {
+        //reg admin call
+        let userU = new User();
+        userU.username = this.userForm.get('username')?.value;
+        userU.password = this.userForm.get('password')?.value;
+        userU.role = this.userForm.get('role')?.value;
+        this.userServ.registerAdmin(userU).subscribe(
+          (data) => {
+            this.routes.navigateByUrl('/user');
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else {
+        let userU = new User();
+        userU.username = this.userForm.get('username')?.value;
+        userU.password = this.userForm.get('password')?.value;
+        userU.role = this.userForm.get('role')?.value;
+        this.userServ.registerUser(userU).subscribe(
+          (data) => {
+            this.routes.navigateByUrl('/user');
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
     } else {
-      console.log(this.userForm.value, 'user');
     }
   }
 }

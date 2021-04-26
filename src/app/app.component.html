@@ -113,7 +113,7 @@
           role="button"
           tabindex="-1"
           *ngIf="loggerRole == 'ADMIN'"
-          routerLink="admincontrol"
+          routerLink="user"
           >Register Another Admin</a
         >
       </li>
@@ -144,7 +144,9 @@
       </li>
     </ul>
 
-    <button class="btn btn-info mr-2" *ngIf="!loginStatus">Sign Up</button>
+    <button class="btn btn-info mr-2" *ngIf="!loginStatus" routerLink="user">
+      Sign Up
+    </button>
     <button
       class="btn btn-success"
       *ngIf="!loginStatus"

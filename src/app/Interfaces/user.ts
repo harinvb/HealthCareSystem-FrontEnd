@@ -1,8 +1,8 @@
 export class User {
-  userid!: number;
+  userid: number = 0;
   private _username!: string;
   private _password!: string;
-  private _role: string = 'ADMIN';
+  private _role: string = 'user';
   private _isLoggedIn: boolean = false;
 
   public get username(): string {

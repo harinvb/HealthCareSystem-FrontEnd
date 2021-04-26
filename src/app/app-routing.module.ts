@@ -6,7 +6,6 @@ import { HomeComponent } from './Components/home/home.component';
 import { NoPageComponent } from './Components/no-page/no-page.component';
 import { AppointmentComponent } from './Components/Appointment/Appointment.component';
 import { PatientComponent } from './Components/Patient/Patient.component';
-import { AdminControlComponent } from './Components/AdminControl/AdminControl.component';
 import { DiagnosticCenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
 import { DiagnosticTestComponent } from './Components/DiagnosticTest/DiagnosticTest.component';
 import { TestResultComponent } from './Components/TestResult/TestResult.component';
@@ -79,10 +78,6 @@ const routes: Routes = [
     component: DiagnosticCenterComponent,
   },
   {
-    path: 'admincontrol',
-    component: AdminControlComponent,
-  },
-  {
     path: 'Uapp',
     component: UAppFormComponent,
   },
@@ -110,7 +105,6 @@ export const routingComponents = [
   AppComponent,
   HomeComponent,
   NoPageComponent,
-  AdminControlComponent,
   DiagnosticCenterComponent,
   DiagnosticTestComponent,
   TestResultComponent,
