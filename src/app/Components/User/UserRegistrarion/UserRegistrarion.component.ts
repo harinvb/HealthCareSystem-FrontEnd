@@ -70,6 +70,19 @@ export class UserRegistrarionComponent implements OnInit {
         );
       }
     } else {
+      let userU = new User();
+      userU.username = this.userForm.get('username')?.value;
+      userU.password = this.userForm.get('password')?.value;
+      userU.role = this.userForm.get('role')?.value;
+      userU.userid = this.user.userid;
+      this.userServ.updateUser(userU).subscribe(
+        (data) => {
+          this.routes.navigateByUrl('/user');
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
 }
