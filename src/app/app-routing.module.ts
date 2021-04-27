@@ -96,10 +96,6 @@ const routes: Routes = [
     component: PatientComponent,
   },
   {
-    path: 'diagnostictest',
-    component: DiagnosticTestComponent,
-  },
-  {
     path: 'Uapp',
     component: UAppFormComponent,
   },
@@ -112,18 +108,18 @@ const routes: Routes = [
     component: UserComponent,
   },
   {
-    path: 'diagnosticcenter',
+    path: 'diagnosticCenter',
     component: DiagnosticcenterComponent,
     children: [
       { path: 'all', component: GetallcentersComponent },
       { path: 'add', component: AddcenterComponent },
       { path: 'update/:diagonasticCenterid', component: UpdatecenterComponent },
       {
-        path: 'testdetails/:diagonasticCenterid',
+        path: 'testDetails/:diagonasticCenterid',
         component: TestdetailsComponent,
       },
       {
-        path: 'addtest/:diagonasticCenterid',
+        path: 'addTest/:diagonasticCenterid',
         component: AddtesttocenterComponent,
       },
     ],

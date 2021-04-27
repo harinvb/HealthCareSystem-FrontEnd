@@ -13,7 +13,7 @@ import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
   providedIn: 'root',
 })
 export class CenterService {
-  private url = 'http://localhost:7576/DiagnosticCenter/';
+  private url = 'http://localhost:8888/DiagnosticCenter/';
   constructor(private httpClient: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({

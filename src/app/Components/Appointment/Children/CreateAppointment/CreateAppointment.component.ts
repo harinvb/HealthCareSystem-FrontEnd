@@ -25,12 +25,14 @@ export class CreateAppointmentComponent implements OnInit {
   success = false;
   errormsg = '';
   validDate = true;
+  hasProfile = true;
   preDCtests!: DiagnosticTest[];
 
   constructor(
     private appServ: AppointmentService,
     private formBuild: FormBuilder,
     private patServ: PatientService,
+
     private routes: Router
   ) {
     this.appform = this.formBuild.group({
@@ -41,19 +43,23 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.patServ.getByUserID();
-    if (this.patServ.Patient != null) {
-      this.appServ.getAllCenters().subscribe(
-        (data) => {
-          this.dignosticCenters = data;
-        },
-        (error) => {
-          this.errormsg = error;
-        }
-      );
-    } else {
-      this.routes.navigateByUrl('/patient');
-    }
+    this.appServ.getAllCenters().subscribe(
+      (data) => {
+        this.dignosticCenters = data;
+      },
+      (error) => {
+        this.errormsg = error;
+      }
+    );
+    this.patServ.getByUserID().subscribe(
+      (data) => {
+        this.hasProfile = true;
+        if (data == null) this.hasProfile = false;
+      },
+      (error) => {
+        this.hasProfile = false;
+      }
+    );
   }
 
   get AppDate() {
@@ -61,22 +67,25 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   submitAppointment() {
-    console.log(this.appform.value);
-    this.appServ
-      .addAppointment(
-        this.appform.get('appointmentDate')?.value,
-        'statusnotapproved',
-        this.appform.get('diagnosticCenter')?.value,
-        this.appform.get('diagnosticTests')?.value
-      )
-      .subscribe(
-        (data) => {
-          this.success = true;
-        },
-        (error) => {
-          this.errormsg = error;
-        }
-      );
+    if (this.hasProfile) {
+      this.appServ
+        .addAppointment(
+          this.appform.get('appointmentDate')?.value,
+          'statusnotapproved',
+          this.appform.get('diagnosticCenter')?.value,
+          this.appform.get('diagnosticTests')?.value
+        )
+        .subscribe(
+          (data) => {
+            this.success = true;
+          },
+          (error) => {
+            this.errormsg = error;
+          }
+        );
+    } else {
+      this.routes.navigateByUrl('patient');
+    }
   }
 
   selected() {

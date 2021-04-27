@@ -12,7 +12,7 @@ import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
   providedIn: 'root',
 })
 export class TestService {
-  private url = 'http://localhost:7576/DiagnosticTest';
+  private url = 'http://localhost:8888/DiagnosticTest';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
