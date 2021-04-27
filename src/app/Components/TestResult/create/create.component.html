@@ -1,0 +1,21 @@
+<head></head>
+
+<body>
+    <div class="container" id="example">
+        <h3 class="heading">Test Result Registration Form</h3>
+        <img class="trimage" src="assets\picture.jpeg" alt="Image Not Found" width="400" height="250">
+        <form [formGroup]="testresultForm" (ngSubmit)="regTestResult()">
+            <div class="form-group">
+                <label for="testReading">Test Reading:</label>
+                <input type="text" class="form-control" id="testReading" placeholder="Enter Test Reading"
+                    formControlName="testReading">
+            </div>
+            <div class="form-group">
+                <label for="testcondition">Test Condition:</label>
+                <input type="text" class="form-control" id="testcondition" placeholder="Enter Test Condition"
+                    formControlName="testcondition">
+            </div>
+            <button type="submit" class="btn-style">Register</button>
+        </form>
+    </div>
+</body>

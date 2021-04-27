@@ -1,0 +1,24 @@
+<div class="container">
+    <h1 class="heading">All Test Result Details</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Test Result ID</th>
+                <th>Test Reading</th>
+                <th>Test Condition</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of testres">
+                <td>{{t.testResultid}}</td>
+                <td>{{t.testReading}}</td>
+                <td>{{t.testcondition}}</td>
+                <td>
+                    <button class="btn btn-link" (click)="removeTestResult(t.testResultid)">Remove</button>
+                    <button class="btn btn-link" [routerLink]="['/testresult/updateresult',t.testResultid]">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

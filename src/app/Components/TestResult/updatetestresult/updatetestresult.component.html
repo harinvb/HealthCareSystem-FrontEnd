@@ -1,0 +1,14 @@
+<div class="container">
+    <form (ngSubmit)="updateData()">
+        <h3 class="heading">Update Test Details</h3>
+        <div class="form-group">
+            <label>Test Reading:</label>
+            <input class=" form-control" [(ngModel)]="test.testReading" name="testReading">
+        </div>
+        <div class="form-group">
+            <label>Test Condition:</label>
+            <input class="form-control" [(ngModel)]="test.testcondition" name="testcondition">
+        </div>
+        <button type="submit" class="btn-style">UpdateTestResult</button>
+    </form>
+</div>

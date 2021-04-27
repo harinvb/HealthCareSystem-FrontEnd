@@ -18,6 +18,9 @@ import { UpdateEachComponent } from './Components/Appointment/Children/UpdateApp
 import { UpdateComponent } from './Components/Patient/Update/Update.component';
 import { UserComponent } from './Components/User/User.component';
 import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
+import { CreateComponent } from './Components/TestResult/create/create.component';
+import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
+import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
 
 const routes: Routes = [
   {
@@ -68,29 +71,46 @@ const routes: Routes = [
   {
     path: 'testresult',
     component: TestResultComponent,
+    children: [
+      {
+        path: 'add',
+        component: CreateComponent
+      },
+      {
+        path: 'all',
+        component: AllTestresultComponent
+      },
+      {
+        path: 'updateresult/:testResultid',
+        component: UpdateComponent
+      },
+    ],
   },
-  {
-    path: 'diagnostictest',
+
+{
+  path: 'diagnostictest',
     component: DiagnosticTestComponent,
   },
-  {
-    path: 'diagnosticcenter',
+{
+  path: 'diagnosticcenter',
     component: DiagnosticCenterComponent,
   },
-  {
-    path: 'Uapp',
+{
+  path: 'Uapp',
     component: UAppFormComponent,
   },
-  {
-    path: 'UpdateEach',
+{
+  path: 'UpdateEach',
     component: UpdateEachComponent,
   },
-  {
-    path: 'user',
+{
+  path: 'user',
     component: UserComponent,
   },
-  {
-    path: '**',
+
+
+{
+  path: '**',
     component: NoPageComponent,
   },
 ];
@@ -99,7 +119,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 export const routingComponents = [
   LoginComponent,
   AppComponent,
@@ -119,4 +139,8 @@ export const routingComponents = [
   UpdateComponent,
   UserComponent,
   UserRegistrarionComponent,
+  TestResultComponent,
+  AllTestresultComponent,
+  UpdatetestresultComponent,
+  CreateComponent
 ];
