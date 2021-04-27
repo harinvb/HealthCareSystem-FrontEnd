@@ -34,7 +34,7 @@ export class PatientComponent implements OnInit {
     this.update = !this.update;
   }
 
-  childUpdate(data: Patient) {
+  childUpdate(data: any) {
     this.patient = data;
     this.update = true;
   }

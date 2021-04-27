@@ -1,7 +1,7 @@
-export interface DiagnosticTest {
-  diagonasticTestid: number;
-  testName: string;
-  testPrice: number;
-  normalValue: string;
-  units: string;
+export class DiagnosticTest {
+  public diagonasticTestid!: number;
+  public testName!: string;
+  public testPrice!: number;
+  public normalValue!: string;
+  public units!: string;
 }

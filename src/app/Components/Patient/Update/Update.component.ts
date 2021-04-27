@@ -10,7 +10,7 @@ import { PatientService } from 'src/app/Services/Patient.service';
   templateUrl: './Update.component.html',
   styleUrls: ['./Update.component.css'],
 })
-export class UpdateComponent implements OnInit {
+export class UpdatePatientComponent implements OnInit {
   @Input('patient') patient!: Patient;
   newPatient = false;
   patientForm!: FormGroup;

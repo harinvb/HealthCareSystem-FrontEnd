@@ -1,47 +1,47 @@
 import { Component, OnInit, Testability } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
 import { DiagnosticTestServiceService } from '../diagnostic-test-service.service';
-import { DiagnosticTest } from '../DiagnosticTest';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+  styleUrls: ['./update.component.css'],
 })
 export class UpdateComponent implements OnInit {
   DiagnosticTest!: DiagnosticTest;
   diagnosticTestid!: number;
-  constructor(private testService: DiagnosticTestServiceService, private actRouter: ActivatedRoute, private router: Router) { }
+  constructor(
+    private testService: DiagnosticTestServiceService,
+    private actRouter: ActivatedRoute,
+    private router: Router
+  ) {}
   testForm!: FormGroup;
   ngOnInit(): void {
     this.DiagnosticTest = new DiagnosticTest();
     this.diagnosticTestid = this.actRouter.snapshot.params['diagnosticTestid'];
-    this.testService.getTestById(this.diagnosticTestid).subscribe((data: any) => {
-      this.DiagnosticTest = data;
-    })
-
+    this.testService
+      .getTestById(this.diagnosticTestid)
+      .subscribe((data: any) => {
+        this.DiagnosticTest = data;
+      });
   }
-  get testName(){
+  get testName() {
     return this.testForm.get('testName');
   }
-  get testPrice(){
+  get testPrice() {
     return this.testForm.get('testPrice');
   }
-  get normalValue(){
+  get normalValue() {
     return this.testForm.get('normalValue');
   }
-  get units(){
+  get units() {
     return this.testForm.get('units');
   }
   updateDtest() {
-    this.testService.updateTest(this.DiagnosticTest).subscribe(res => {
+    this.testService.updateTest(this.DiagnosticTest).subscribe((res) => {
       this.router.navigate(['/DiagnosticTest/all/']);
-    })
+    });
   }
 }
-
-
-
-
-

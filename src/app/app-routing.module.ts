@@ -6,7 +6,6 @@ import { HomeComponent } from './Components/home/home.component';
 import { NoPageComponent } from './Components/no-page/no-page.component';
 import { AppointmentComponent } from './Components/Appointment/Appointment.component';
 import { PatientComponent } from './Components/Patient/Patient.component';
-import { DiagnosticTestComponent } from './Components/DiagnosticTest/DiagnosticTest.component';
 import { TestResultComponent } from './Components/TestResult/TestResult.component';
 import { ViewAppointmentsComponent } from './Components/Appointment/Children/ViewAppointments/ViewAppointments.component';
 import { CreateAppointmentComponent } from './Components/Appointment/Children/CreateAppointment/CreateAppointment.component';
@@ -14,10 +13,8 @@ import { VerifyAppointmentComponent } from './Components/Appointment/Children/Ve
 import { UpdateAppointmentComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateAppointment.component';
 import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppointment/UAppForm/UAppForm.component';
 import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
-import { UpdateComponent } from './Components/Patient/Update/Update.component';
 import { UserComponent } from './Components/User/User.component';
 import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
-import { AddcenterComponent } from './Components/DiagnosticCenter/addcenter/addcenter.component';
 import { AddtesttocenterComponent } from './Components/DiagnosticCenter/addtesttocenter/addtesttocenter.component';
 import { DiagnosticcenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
 import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcenters/getallcenters.component';
@@ -27,6 +24,11 @@ import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests
 import { CreateComponent } from './Components/TestResult/create/create.component';
 import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
 import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
+import { DiagnosticTestComponent } from './Components/DiagnosticTest/diagnostic-test.component';
+import { UpdateComponent } from './Components/DiagnosticTest/update/update.component';
+import { UpdatePatientComponent } from './Components/Patient/Update/Update.component';
+import { AllTestComponent } from './Components/DiagnosticTest/all-test/all-test.component';
+import { AddcenterComponent } from './Components/DiagnosticCenter/addcenter/addcenter.component';
 
 const routes: Routes = [
   {
@@ -110,24 +112,24 @@ const routes: Routes = [
     component: UserComponent,
   },
   {
-    path: 'diagnosticCenter',
+    path: 'diagnosticcenter',
     component: DiagnosticcenterComponent,
     children: [
       { path: 'all', component: GetallcentersComponent },
       { path: 'add', component: AddcenterComponent },
       { path: 'update/:diagonasticCenterid', component: UpdatecenterComponent },
       {
-        path: 'testDetails/:diagonasticCenterid',
+        path: 'testdetails/:diagonasticCenterid',
         component: TestdetailsComponent,
       },
       {
-        path: 'addTest/:diagonasticCenterid',
+        path: 'addtest/:diagonasticCenterid',
         component: AddtesttocenterComponent,
       },
     ],
   },
   {
-    path: 'DiagnosticTest',
+    path: 'diagnostictest',
     component: DiagnosticTestComponent,
     children: [
       { path: 'all', component: AlltestsComponent },
@@ -152,7 +154,6 @@ export const routingComponents = [
   AppComponent,
   HomeComponent,
   NoPageComponent,
-  DiagnosticTestComponent,
   TestResultComponent,
   CreateComponent,
   PatientComponent,
@@ -178,4 +179,6 @@ export const routingComponents = [
   TestResultComponent,
   AllTestresultComponent,
   UpdatetestresultComponent,
+  UpdatePatientComponent,
+  AllTestComponent,
 ];
