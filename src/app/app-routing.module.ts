@@ -24,6 +24,9 @@ import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcent
 import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
 import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
+import { CreateComponent } from './Components/TestResult/create/create.component';
+import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
+import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
 
 const routes: Routes = [
   {
@@ -56,6 +59,25 @@ const routes: Routes = [
       {
         path: 'updateappointments',
         component: UpdateAppointmentComponent,
+      },
+    ],
+  },
+  {
+    path: 'testresult',
+    component: TestResultComponent,
+
+    children: [
+      {
+        path: 'add',
+        component: CreateComponent,
+      },
+      {
+        path: 'all',
+        component: AllTestresultComponent,
+      },
+      {
+        path: 'updateresult/:testResultid',
+        component: UpdatetestresultComponent,
       },
     ],
   },
@@ -132,6 +154,7 @@ export const routingComponents = [
   NoPageComponent,
   DiagnosticTestComponent,
   TestResultComponent,
+  CreateComponent,
   PatientComponent,
   AppointmentComponent,
   CreateAppointmentComponent,
@@ -152,4 +175,7 @@ export const routingComponents = [
   DiagnosticTestComponent,
   AlltestsComponent,
   UpdateComponent,
+  TestResultComponent,
+  AllTestresultComponent,
+  UpdatetestresultComponent,
 ];
