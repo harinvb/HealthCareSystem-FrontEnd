@@ -46,7 +46,7 @@ export class TestResultService {
   }
   getAllTestResult(): Observable<TestResult[]> {
     return this.httpClient
-      .get<TestResult[]>(this.url + '/testresult/allresult')
+      .get<TestResult[]>(this.url + '/testresult/getAllTestResults')
       .pipe(catchError(this.handleError));
   }
 
