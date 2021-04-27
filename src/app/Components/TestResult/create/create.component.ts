@@ -21,7 +21,17 @@ export class CreateComponent implements OnInit {
       testReading: ['', Validators.required],
       testcondition: ['', Validators.required],
     })
+  }get testName(){
+    return this.testresultForm.get('testName');
   }
+  get testReading(){
+    return this.testresultForm.get('testReading');
+  }
+  get testcondition(){
+    return this.testresultForm.get('testcondition');
+  }
+  
+
   get testResultid() {
     return this.testresultForm.get('testResultid');
   }

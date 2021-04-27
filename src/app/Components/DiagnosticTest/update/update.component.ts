@@ -3,7 +3,6 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
 import { DiagnosticTestServiceService } from '../diagnostic-test-service.service';
-
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',

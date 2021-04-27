@@ -13,7 +13,8 @@
             <label for="testReading">Test Reading:</label>
             <input type="text" class="form-control" id="testReading" placeholder="Enter Test Reading"
                 formControlName="testReading">
-            <span class="badge badge-warning" *ngIf="testresultForm.controls['testReading']?.invalid 
+            <span class="badge badge-warning" type="number" 
+            *ngIf="testresultForm.controls['testReading']?.invalid 
                 &&  testresultForm.controls['testReading']?.touched">Invalid test Reading</span>
         </div>
         <div class="form-group">
