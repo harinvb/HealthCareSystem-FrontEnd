@@ -1,0 +1,30 @@
+<div class="container">
+    <h4>Tests Avaliable</h4>
+</div>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>Test ID</th>
+            <th>Test Name</th>
+            <th>Test Price</th>
+            <th>Normal Value</th>
+            <th>Units</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let t of DiagnosticTest">
+            <td>{{t.diagonasticTestid}}</td>
+            <td>{{t.testName}}</td>
+            <td>{{t.testPrice}}</td>
+            <td>{{t.normalValue}}</td>
+            <td>{{t.units}}</td>
+            <!-- <td>
+                <button class="btn btn-success"
+                    [routerLink]="['/DiagnosticTest/updateTestDetail',t.testid]">Update</button>
+                <button class="btn btn-danger" [routerLink]="['/DiagnosticTest/removeTest',t.testid]">Delete</button>
+                <button class="btn btn-info" [routerLink]="['/DiagnosticTest/removeTest',t.testid]">Details</button>
+
+            </td> -->
+
+        </tr>
+    </table>
+</div>

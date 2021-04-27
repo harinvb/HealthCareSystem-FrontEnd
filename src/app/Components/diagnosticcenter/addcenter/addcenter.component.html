@@ -1,0 +1,50 @@
+<div class="container" align="center"><h3>Register Now!</h3></div>
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card border-white">
+        <div class="card-body">
+            <img src="assets/Mobile login-bro.png" style="width: 350px;" align="right">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card border-white">
+        <div class="card-body">
+          <form [formGroup]="centerForm" (ngSubmit)="addCenter()">
+            <div class="form-group" style="width: 25rem;">
+                <i class="bi bi-file-person"></i><input id="name" class="form-control" placeholder="Enter Name"
+                    formControlName="name" required>
+                <span class="badge badge-warning" *ngIf="name?.touched && name?.invalid">Invalid Name</span>
+            </div>
+            <div class="form-group" style="width: 25rem;">
+                <i class="bi bi-telephone-fill"></i><input id="contactNo" class="form-control" type="number"
+                    pattern="^[7-9]{1}[0-9]{9}$" placeholder="Enter Contact No" formControlName="contactNo"
+                    required>
+                <span class="badge badge-warning" *ngIf="contactNo?.touched && contactNo?.invalid">Invalid
+                    Number</span>
+            </div>
+
+
+            <div class="form-group" style="width: 25rem;">
+                <i class="bi bi-geo-alt-fill"></i><input id="address" class="form-control"
+                    placeholder="Enter address" formControlName="address" required>
+                <span class="badge badge-warning" *ngIf="address?.touched && address?.invalid">Invalid
+                    Address</span>
+            </div>
+
+            <div class="form-group" style="width: 25rem;">
+                <i class="bi bi-envelope-fill"></i><input id="contactEmail" type="email" class="form-control"
+                    placeholder="Enter Email" formControlName="contactEmail" required>
+                <span class="badge badge-warning" *ngIf="contactEmail?.touched && contactEmail?.invalid">Invalid
+                    Email</span>
+            </div>
+
+            <div >
+                <button type="submit" class="btn btn-warning" align="center"
+                    [disabled]="!centerForm.valid"><i class="bi bi-plus-circle-fill"></i> Add Center</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
