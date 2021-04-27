@@ -17,16 +17,13 @@ import { UpdateEachComponent } from './Components/Appointment/Children/UpdateApp
 import { UpdateComponent } from './Components/Patient/Update/Update.component';
 import { UserComponent } from './Components/User/User.component';
 import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
-import { GetallcentersComponent } from './Components/diagnosticcenter/getallcenters/getallcenters.component';
-import { AddcenterComponent } from './Components/diagnosticcenter/addcenter/addcenter.component';
-import { UpdatecenterComponent } from './Components/diagnosticcenter/updatecenter/updatecenter.component';
-import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/testdetails.component';
-import { AddtesttocenterComponent } from './Components/diagnosticcenter/addtesttocenter/addtesttocenter.component';
+import { AddcenterComponent } from './Components/DiagnosticCenter/addcenter/addcenter.component';
+import { AddtesttocenterComponent } from './Components/DiagnosticCenter/addtesttocenter/addtesttocenter.component';
+import { DiagnosticcenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
+import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcenters/getallcenters.component';
+import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
+import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
-import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnosticcenter.component';
-import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
-import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
-import { CreateComponent } from './Components/TestResult/create/create.component';
 
 const routes: Routes = [
   {
@@ -93,47 +90,59 @@ const routes: Routes = [
     ],
   },
 
-{
-  path: 'diagnostictest',
+    path: 'diagnostictest',
     component: DiagnosticTestComponent,
   },
   {
     path: 'Uapp',
     component: UAppFormComponent,
   },
-{
-  path: 'UpdateEach',
+  {
+    path: 'UpdateEach',
     component: UpdateEachComponent,
   },
-{
-  path: 'user',
+  {
+    path: 'user',
     component: UserComponent,
   },
-  {path:'diagnosticCenter',component:DiagnosticcenterComponent,
-  children:[
-    {path:'all', component:GetallcentersComponent},
-    {path:'add', component:AddcenterComponent},
-    {path:'update/:diagonasticCenterid', component:UpdatecenterComponent},
-    {path:'testDetails/:diagonasticCenterid',component:TestdetailsComponent},
-    {path:'addTest/:diagonasticCenterid',component:AddtesttocenterComponent} 
-    
-  ]},
-  {path:'diagnosticTest', component: DiagnosticTestComponent, 
-  children:[
-    {path:'all', component:AlltestsComponent}
-  ]},
+  {
+    path: 'diagnosticCenter',
+    component: DiagnosticcenterComponent,
+    children: [
+      { path: 'all', component: GetallcentersComponent },
+      { path: 'add', component: AddcenterComponent },
+      { path: 'update/:diagonasticCenterid', component: UpdatecenterComponent },
+      {
+        path: 'testDetails/:diagonasticCenterid',
+        component: TestdetailsComponent,
+      },
+      {
+        path: 'addTest/:diagonasticCenterid',
+        component: AddtesttocenterComponent,
+      },
+    ],
+  },
+  {
+    path: 'DiagnosticTest',
+    component: DiagnosticTestComponent,
+    children: [
+      { path: 'all', component: AlltestsComponent },
+      { path: 'add', component: UpdateComponent },
+      { path: 'update/:diagnosticTestid', component: UpdateComponent },
+      // { path: 'details/:id', component: TestDetailsComponent}
+    ],
+  },
   {
     path: '**',
     component: NoPageComponent,
-  }
-  
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 export const routingComponents = [
   LoginComponent,
   AppComponent,
@@ -158,8 +167,7 @@ export const routingComponents = [
   UpdatecenterComponent,
   TestdetailsComponent,
   AddtesttocenterComponent,
-  TestResultComponent,
-  AllTestresultComponent,
-  UpdatetestresultComponent,
-  CreateComponent
+  DiagnosticTestComponent,
+  AlltestsComponent,
+  UpdateComponent,
 ];
