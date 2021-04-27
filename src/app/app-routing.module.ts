@@ -29,6 +29,7 @@ import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnos
 import { GetallcentersComponent } from './Components/diagnosticcenter/getallcenters/getallcenters.component';
 import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/testdetails.component';
 import { UpdatecenterComponent } from './Components/diagnosticcenter/updatecenter/updatecenter.component';
+import { CenterhomeComponent } from './Components/diagnosticcenter/centerhome/centerhome.component';
 
 const routes: Routes = [
   {
@@ -109,9 +110,15 @@ const routes: Routes = [
   },
   {
     path: 'diagnosticCenter',
+    redirectTo: 'diagnosticCenter/centerhome',
+    pathMatch: 'full',
+  },
+  {
+    path: 'diagnosticCenter',
     component: DiagnosticcenterComponent,
     children: [
       { path: 'all', component: GetallcentersComponent },
+      { path: 'centerhome', component: CenterhomeComponent },
       { path: 'add', component: AddcenterComponent },
       { path: 'update/:diagonasticCenterid', component: UpdatecenterComponent },
       {
@@ -164,6 +171,7 @@ export const routingComponents = [
   UserComponent,
   UserRegistrarionComponent,
   DiagnosticcenterComponent,
+  CenterhomeComponent,
   GetallcentersComponent,
   AddcenterComponent,
   UpdatecenterComponent,
