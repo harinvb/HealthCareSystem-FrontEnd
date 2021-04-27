@@ -24,6 +24,9 @@ import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/
 import { AddtesttocenterComponent } from './Components/diagnosticcenter/addtesttocenter/addtesttocenter.component';
 import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
 import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnosticcenter.component';
+import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
+import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
+import { CreateComponent } from './Components/TestResult/create/create.component';
 
 const routes: Routes = [
   {
@@ -154,5 +157,9 @@ export const routingComponents = [
   AddcenterComponent,
   UpdatecenterComponent,
   TestdetailsComponent,
-  AddtesttocenterComponent
+  AddtesttocenterComponent,
+  TestResultComponent,
+  AllTestresultComponent,
+  UpdatetestresultComponent,
+  CreateComponent
 ];
