@@ -6,7 +6,6 @@ import { HomeComponent } from './Components/home/home.component';
 import { NoPageComponent } from './Components/no-page/no-page.component';
 import { AppointmentComponent } from './Components/Appointment/Appointment.component';
 import { PatientComponent } from './Components/Patient/Patient.component';
-import { DiagnosticCenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
 import { DiagnosticTestComponent } from './Components/DiagnosticTest/DiagnosticTest.component';
 import { TestResultComponent } from './Components/TestResult/TestResult.component';
 import { ViewAppointmentsComponent } from './Components/Appointment/Children/ViewAppointments/ViewAppointments.component';
@@ -18,9 +17,13 @@ import { UpdateEachComponent } from './Components/Appointment/Children/UpdateApp
 import { UpdateComponent } from './Components/Patient/Update/Update.component';
 import { UserComponent } from './Components/User/User.component';
 import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
-import { CreateComponent } from './Components/TestResult/create/create.component';
-import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
-import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
+import { GetallcentersComponent } from './Components/diagnosticcenter/getallcenters/getallcenters.component';
+import { AddcenterComponent } from './Components/diagnosticcenter/addcenter/addcenter.component';
+import { UpdatecenterComponent } from './Components/diagnosticcenter/updatecenter/updatecenter.component';
+import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/testdetails.component';
+import { AddtesttocenterComponent } from './Components/diagnosticcenter/addtesttocenter/addtesttocenter.component';
+import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
+import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnosticcenter.component';
 
 const routes: Routes = [
   {
@@ -91,12 +94,8 @@ const routes: Routes = [
   path: 'diagnostictest',
     component: DiagnosticTestComponent,
   },
-{
-  path: 'diagnosticcenter',
-    component: DiagnosticCenterComponent,
-  },
-{
-  path: 'Uapp',
+  {
+    path: 'Uapp',
     component: UAppFormComponent,
   },
 {
@@ -107,12 +106,24 @@ const routes: Routes = [
   path: 'user',
     component: UserComponent,
   },
-
-
-{
-  path: '**',
+  {path:'diagnosticCenter',component:DiagnosticcenterComponent,
+  children:[
+    {path:'all', component:GetallcentersComponent},
+    {path:'add', component:AddcenterComponent},
+    {path:'update/:diagonasticCenterid', component:UpdatecenterComponent},
+    {path:'testDetails/:diagonasticCenterid',component:TestdetailsComponent},
+    {path:'addTest/:diagonasticCenterid',component:AddtesttocenterComponent} 
+    
+  ]},
+  {path:'diagnosticTest', component: DiagnosticTestComponent, 
+  children:[
+    {path:'all', component:AlltestsComponent}
+  ]},
+  {
+    path: '**',
     component: NoPageComponent,
-  },
+  }
+  
 ];
 
 @NgModule({
@@ -125,7 +136,6 @@ export const routingComponents = [
   AppComponent,
   HomeComponent,
   NoPageComponent,
-  DiagnosticCenterComponent,
   DiagnosticTestComponent,
   TestResultComponent,
   PatientComponent,
@@ -139,8 +149,10 @@ export const routingComponents = [
   UpdateComponent,
   UserComponent,
   UserRegistrarionComponent,
-  TestResultComponent,
-  AllTestresultComponent,
-  UpdatetestresultComponent,
-  CreateComponent
+  DiagnosticcenterComponent,
+  GetallcentersComponent,
+  AddcenterComponent,
+  UpdatecenterComponent,
+  TestdetailsComponent,
+  AddtesttocenterComponent
 ];

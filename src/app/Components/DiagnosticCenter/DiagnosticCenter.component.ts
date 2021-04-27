@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-DiagnosticCenter',
-  templateUrl: './DiagnosticCenter.component.html',
-  styleUrls: ['./DiagnosticCenter.component.css']
+  selector: 'app-diagnosticcenter',
+  templateUrl: './diagnosticcenter.component.html',
+  styleUrls: ['./diagnosticcenter.component.css']
 })
-export class DiagnosticCenterComponent implements OnInit {
+export class DiagnosticcenterComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

@@ -1,0 +1,47 @@
+<div class="container" align="Center">
+  <img src="assets/8496_1.jpg" style="float: center; width:100%;">
+  <div class="centered">
+    <h1>Diagnostic Center Portal</h1>
+  </div>
+</div>
+<div class="input-icons" align="center">
+  <div align="center">
+    <i class="bi bi-search"></i>
+    <input class="form-control" style="width: 50rem;" type="text" [(ngModel)]="searchText"
+      placeholder="Search by Center ID, Center Name or City">
+  </div>
+<hr>
+
+<div class="card-columns">
+  <div class="card" align="center" *ngFor="let c of center| filter:searchText">
+    <div class="card-header">
+      <div align="left"><b>centerID:{{c.diagonasticCenterid}}</b>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="float: right;"><button
+            class="btn btn-danger" (click)="removeCenter(c.diagonasticCenterid)" style="float: right;"><i
+              class="bi bi-trash"></i></button>
+
+          <button class="btn btn-primary" [routerLink]="['/diagnosticCenter/update',c.diagonasticCenterid]"
+            style="float: right;"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-warning" [routerLink]="['/diagnosticCenter/testDetails',c.diagonasticCenterid]"><i class="bi bi-back"></i></button>
+          <button class="btn btn-success" [routerLink]="['/diagnosticCenter/addTest',c.diagonasticCenterid]"><i class="bi bi-back"></i></button>
+        </div>
+      </div>
+
+    </div>
+    <div class="card bg-white text-center">
+      <img class="card-img" src="assets/16333.jpg" style="opacity: 0.5;">
+      <div class="card-img-overlay">
+        <div class="card-body" style="float: center;">
+          <h4 class="card-title">{{c.name}}</h4>
+          <p class="card-text">&#9742;+91 {{c.contactNo}}</p>
+          <p class="card-text"><i class="bi bi-envelope-fill"></i> {{c.contactEmail}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer text-muted">
+      <i class="bi bi-geo-alt-fill"></i>{{c.address}}
+    </div>
+  </div>
+
+</div>

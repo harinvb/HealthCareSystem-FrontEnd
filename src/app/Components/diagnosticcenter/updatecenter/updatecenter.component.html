@@ -1,0 +1,38 @@
+<div class="container" align="center"><h3>Update Your Details</h3></div>
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card border-white">
+        <div class="card-body">
+            <img src="assets/Update-pana.png" style="width: 350px;" align="right">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card border-white">
+        <div class="card-body">
+            <form (ngSubmit)="updateDcenter()">
+                <div class="form-group" style="width: 25rem;"><i class="bi bi-file-person"></i>
+                    <input class="form-control" [(ngModel)]="center.name" name="name" required>
+                    <!-- <span class="badge badge-warning" *ngIf="name!.touched && name!.invalid">Invalid Name</span> -->
+                </div>
+                <div class="form-group" style="width: 25rem;"><i class="bi bi-telephone-fill"></i>
+                    <input class="form-control" type="number" pattern="^[7-9]{1}[0-9]{9}$" [(ngModel)]="center.contactNo" name="contactNo" required>
+                    <!-- <span class="badge badge-warning" *ngIf="contactNo!.touched && contactNo!.invalid">Invalid Number</span> -->
+                </div>
+                <div class="form-group" style="width: 25rem;"><i class="bi bi-geo-alt-fill"></i>
+                    <input class="form-control" [(ngModel)]="center.address" name="address" required>
+                    <!-- <span class="badge badge-warning" *ngIf="address!.touched && address!.invalid">Invalid Address</span> -->
+                </div>
+                <div class="form-group" style="width: 25rem;"><i class="bi bi-envelope-fill"></i>
+                    <input class="form-control" [(ngModel)]="center.contactEmail" name="contactEmail" required>
+                    <!-- <span class="badge badge-warning" *ngIf="contactEmail!.touched && contactEmail!.invalid">Invalid Email</span> -->
+                </div>
+                <div class="form-group">
+                     <button type="submit" class="btn btn-primary">Update Center</button>
+                </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
