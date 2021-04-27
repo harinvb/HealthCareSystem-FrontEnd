@@ -1,0 +1,27 @@
+.container{
+    margin:auto;
+    margin-top: 50px;
+    width:500px;
+    background-color: rgba(245, 245, 247, 0.904);
+    padding: 40px;
+    box-shadow: 0 0 10px #888888;
+  }
+  .btn-style{
+    width:418px;
+    background-color:rgba(116, 116, 116, 0.8);
+    color:rgba(255,255,255,1);
+    font-weight: bold;
+    padding: 5px;
+    font-size: larger;
+    font-family: "Alegreya", serif !important;
+    margin-top: 20px;
+    border:none;
+  } 
+  .btn-style:focus {
+    background-color: rgba(116, 116, 116, 0.37);
+  }
+  .heading{
+    padding:0px 20px 20px 20px;
+    text-align: center;
+  }
+  
