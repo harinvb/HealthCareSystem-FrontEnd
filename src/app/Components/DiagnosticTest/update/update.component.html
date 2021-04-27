@@ -1,0 +1,65 @@
+<div class="container">
+    <form (ngSubmit)="updateDtest()" class="form">
+        <div class="card-header">Update Details</div>
+       <!---- <div class="form-group">
+            <label for="testName">Test Name&nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <input
+              type="text"
+              id="testName"
+              class="form-control"
+              placeholder="Enter Test Name"
+              formControlName="name"
+            />
+          </div>
+          <div class="form-group p-1">
+            <label for="testPrice">Test Price&nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <input
+              type="number"
+              id="testPrice"
+              class="form-control"
+              placeholder="Enter Test Name"
+              formControlName="testPrice"
+            />
+          </div>
+          <div class="form-group p-1">
+            <label for="normalValue">NormalValue&nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <input
+              type="number"
+              id="normalValue"
+              class="form-control"
+              placeholder="Enter NormalValue"
+              formControlName="normalValue"
+            />
+          </div>
+          <div class="form-group p-1">
+            <label for="units">Units&nbsp;&nbsp; &nbsp;&nbsp;</label>
+            <input
+              type="text"
+              id="units"
+              class="form-control"
+              placeholder="Enter Units"
+              formControlName="units"
+            />
+          </div>-->
+        <div class="form-group">
+            Test Name
+            <input class="form-control" [(ngModel)]="DiagnosticTest.testName" name="testName" required>
+        </div>
+        <div class="form-group">
+            Test Price
+            <input class="form-control" type="number" [(ngModel)]="DiagnosticTest.testPrice" name="testPrice" required>
+        </div>
+        <div class="form-group">
+            NormalValue
+            <input class="form-control" type="number" [(ngModel)]="DiagnosticTest.normalValue" name="normalValue" required>
+        </div>
+        <div class="form-group">
+            Units
+            <input class="form-control" type="text" [(ngModel)]="DiagnosticTest.units" name="units" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update Test</button>
+        </div>
+    </form>
+</div>
+
