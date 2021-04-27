@@ -17,6 +17,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.testresultForm = this.fb.group({
+      testName:['',Validators.required],
       testReading: ['', Validators.required],
       testcondition: ['', Validators.required],
     })

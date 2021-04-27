@@ -3,6 +3,7 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th>Test Name</th>
                 <th>Test Result ID</th>
                 <th>Test Reading</th>
                 <th>Test Condition</th>
@@ -11,6 +12,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let t of testres">
+                <td>{{t.testName}}</td>
                 <td>{{t.testResultid}}</td>
                 <td>{{t.testReading}}</td>
                 <td>{{t.testcondition}}</td>
