@@ -72,24 +72,6 @@ const routes: Routes = [
     component: PatientComponent,
   },
   {
-    path: 'testresult',
-    component: TestResultComponent,
-    children: [
-      {
-        path: 'add',
-        component: CreateComponent
-      },
-      {
-        path: 'all',
-        component: AllTestresultComponent
-      },
-      {
-        path: 'updateresult/:testResultid',
-        component: UpdateComponent
-      },
-    ],
-  },
-
     path: 'diagnostictest',
     component: DiagnosticTestComponent,
   },
