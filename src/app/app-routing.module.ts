@@ -15,11 +15,6 @@ import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppoi
 import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
 import { UserComponent } from './Components/User/User.component';
 import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
-import { AddtesttocenterComponent } from './Components/DiagnosticCenter/addtesttocenter/addtesttocenter.component';
-import { DiagnosticcenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
-import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcenters/getallcenters.component';
-import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
-import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
 import { CreateComponent } from './Components/TestResult/create/create.component';
 import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
@@ -28,7 +23,12 @@ import { DiagnosticTestComponent } from './Components/DiagnosticTest/diagnostic-
 import { UpdateComponent } from './Components/DiagnosticTest/update/update.component';
 import { UpdatePatientComponent } from './Components/Patient/Update/Update.component';
 import { AllTestComponent } from './Components/DiagnosticTest/all-test/all-test.component';
-import { AddcenterComponent } from './Components/DiagnosticCenter/addcenter/addcenter.component';
+import { AddcenterComponent } from './Components/diagnosticcenter/addcenter/addcenter.component';
+import { AddtesttocenterComponent } from './Components/diagnosticcenter/addtesttocenter/addtesttocenter.component';
+import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnosticcenter.component';
+import { GetallcentersComponent } from './Components/diagnosticcenter/getallcenters/getallcenters.component';
+import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/testdetails.component';
+import { UpdatecenterComponent } from './Components/diagnosticcenter/updatecenter/updatecenter.component';
 
 const routes: Routes = [
   {
