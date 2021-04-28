@@ -135,8 +135,8 @@ const routes: Routes = [
     path: 'diagnostictest',
     component: DiagnosticTestComponent,
     children: [
-      { path: 'all', component: AllTestComponent },
-      { path: 'add', component: CreateComponent },
+      { path: 'all', component: AlltestsComponent },
+      { path: 'add', component: UpdateComponent },
       { path: 'update/:diagnosticTestid', component: UpdateComponent },
       // { path: 'details/:id', component: TestDetailsComponent}
     ],
