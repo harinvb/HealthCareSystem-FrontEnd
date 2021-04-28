@@ -131,8 +131,8 @@ const routes: Routes = [
     component: DiagnosticTestComponent,
     canActivate: [AdminGuard],
     children: [
-      { path: 'all', component: AlltestsComponent },
-      { path: 'add', component: UpdateComponent },
+      { path: 'all', component: AllTestComponent },
+      { path: 'add', component: CreateComponent },
       { path: 'update/:diagnosticTestid', component: UpdateComponent },
       // { path: 'details/:id', component: TestDetailsComponent}
     ],
