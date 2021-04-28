@@ -13,8 +13,6 @@ import { VerifyAppointmentComponent } from './Components/Appointment/Children/Ve
 import { UpdateAppointmentComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateAppointment.component';
 import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppointment/UAppForm/UAppForm.component';
 import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
-import { UserComponent } from './Components/User/User.component';
-import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
 import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
 import { CreateComponent } from './Components/TestResult/create/create.component';
 import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
@@ -52,10 +50,7 @@ const routes: Routes = [
     component: PatientComponent,
     canActivate: [UserGuard],
   },
-  {
-    path: 'user',
-    component: UserComponent,
-  },
+
   {
     path: 'appointment',
     component: AppointmentComponent,
@@ -164,8 +159,6 @@ export const routingComponents = [
   UAppFormComponent,
   UpdateEachComponent,
   UpdateComponent,
-  UserComponent,
-  UserRegistrarionComponent,
   DiagnosticcenterComponent,
   CenterhomeComponent,
   GetallcentersComponent,
