@@ -31,6 +31,7 @@ import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/
 import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { UserGuard } from './User.guard';
 import { UserComponent } from './Components/User/User.component';
+import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
 
 const routes: Routes = [
   {
@@ -178,4 +179,6 @@ export const routingComponents = [
   UpdatetestresultComponent,
   UpdatePatientComponent,
   AllTestComponent,
+  UserComponent,
+  UserRegistrarionComponent,
 ];
