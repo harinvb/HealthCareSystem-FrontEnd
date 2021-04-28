@@ -3,6 +3,7 @@ import {
   HttpErrorResponse,
   HttpParams,
 } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, shareReplay } from 'rxjs/operators';
@@ -22,25 +23,28 @@ export class AppointmentService {
     appDate: Date,
     status: string,
     centerID: string,
-    testId: string[]
+    testId: string[],
+    patientid: number
   ): Observable<Appointment> {
     let postParams = new HttpParams({
       fromObject: {
-        patientID: this.patServ.patientId.toString(),
+        patientID: patientid.toString(),
         diagnosticCenterID: centerID,
         testIds: testId,
       },
     });
-    return this.http.post<Appointment>(
-      'http://localhost:8888/Appointment/addappointment',
-      {
-        appointmentDate: appDate,
-        approvalStatus: status,
-      },
-      {
-        params: postParams,
-      }
-    );
+    return this.http
+      .post<Appointment>(
+        'http://localhost:8888/Appointment/addappointment',
+        {
+          appointmentDate: appDate,
+          approvalStatus: status,
+        },
+        {
+          params: postParams,
+        }
+      )
+      .pipe(catchError(this.handleError), shareReplay());
   }
 
   getAllAppointments() {
