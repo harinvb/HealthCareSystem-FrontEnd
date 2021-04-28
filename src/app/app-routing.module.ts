@@ -23,24 +23,15 @@ import { DiagnosticTestComponent } from './Components/DiagnosticTest/diagnostic-
 import { UpdateComponent } from './Components/DiagnosticTest/update/update.component';
 import { UpdatePatientComponent } from './Components/Patient/Update/Update.component';
 import { AllTestComponent } from './Components/DiagnosticTest/all-test/all-test.component';
-<<<<<<< Updated upstream
-import { AddcenterComponent } from './Components/diagnosticcenter/addcenter/addcenter.component';
-import { AddtesttocenterComponent } from './Components/diagnosticcenter/addtesttocenter/addtesttocenter.component';
-import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnosticcenter.component';
-import { GetallcentersComponent } from './Components/diagnosticcenter/getallcenters/getallcenters.component';
-import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/testdetails.component';
-import { UpdatecenterComponent } from './Components/diagnosticcenter/updatecenter/updatecenter.component';
-import { CenterhomeComponent } from './Components/diagnosticcenter/centerhome/centerhome.component';
-=======
+import { AdminGuard } from './Admin.guard';
 import { AddcenterComponent } from './Components/DiagnosticCenter/addcenter/addcenter.component';
 import { AddtesttocenterComponent } from './Components/DiagnosticCenter/addtesttocenter/addtesttocenter.component';
+import { CenterhomeComponent } from './Components/DiagnosticCenter/centerhome/centerhome.component';
 import { DiagnosticcenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
 import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcenters/getallcenters.component';
 import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
 import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { UserGuard } from './User.guard';
-import { AdminGuard } from './Admin.guard';
->>>>>>> Stashed changes
 
 const routes: Routes = [
   {
