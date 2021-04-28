@@ -9,5 +9,5 @@
 
 .navbar a:hover {
   animation: pulse; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 10s;
+  animation-duration: 5s;
 }

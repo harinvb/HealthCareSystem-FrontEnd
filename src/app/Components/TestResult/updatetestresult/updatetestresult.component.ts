@@ -18,7 +18,7 @@ export class UpdatetestresultComponent implements OnInit {
 testresultForm:FormGroup;
 
   ngOnInit(): void {
-    this.test = new TestResult();
+    //this.test = new TestResult();
     this.testResultid = this.actRouter.snapshot.params['testResultid'];
     this.eService.getTestResultById(this.testResultid).subscribe(data => {
       this.test = data;
@@ -27,11 +27,9 @@ testresultForm:FormGroup;
 
 
   updateData() {
-    // this.test.testResultid = this.testResultid;
+    this.test.testResultid = this.testResultid;
     this.eService.updateTestResult(this.test).subscribe(res => {
       this.router.navigate(['/testresult/all'])
     });
   }
 }
-
-

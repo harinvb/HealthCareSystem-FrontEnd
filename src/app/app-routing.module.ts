@@ -23,13 +23,15 @@ import { DiagnosticTestComponent } from './Components/DiagnosticTest/diagnostic-
 import { UpdateComponent } from './Components/DiagnosticTest/update/update.component';
 import { UpdatePatientComponent } from './Components/Patient/Update/Update.component';
 import { AllTestComponent } from './Components/DiagnosticTest/all-test/all-test.component';
-import { AddcenterComponent } from './Components/diagnosticcenter/addcenter/addcenter.component';
-import { AddtesttocenterComponent } from './Components/diagnosticcenter/addtesttocenter/addtesttocenter.component';
-import { DiagnosticcenterComponent } from './Components/diagnosticcenter/diagnosticcenter.component';
-import { GetallcentersComponent } from './Components/diagnosticcenter/getallcenters/getallcenters.component';
-import { TestdetailsComponent } from './Components/diagnosticcenter/testdetails/testdetails.component';
-import { UpdatecenterComponent } from './Components/diagnosticcenter/updatecenter/updatecenter.component';
-import { CenterhomeComponent } from './Components/diagnosticcenter/centerhome/centerhome.component';
+import { AdminGuard } from './Admin.guard';
+import { AddcenterComponent } from './Components/DiagnosticCenter/addcenter/addcenter.component';
+import { AddtesttocenterComponent } from './Components/DiagnosticCenter/addtesttocenter/addtesttocenter.component';
+import { CenterhomeComponent } from './Components/DiagnosticCenter/centerhome/centerhome.component';
+import { DiagnosticcenterComponent } from './Components/DiagnosticCenter/DiagnosticCenter.component';
+import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcenters/getallcenters.component';
+import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
+import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
+import { UserGuard } from './User.guard';
 
 const routes: Routes = [
   {
@@ -38,37 +40,52 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'patient',
+    component: PatientComponent,
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+  },
+  {
     path: 'appointment',
     component: AppointmentComponent,
-
     children: [
-      {
-        path: '',
-        redirectTo: 'verifyappointment',
-        pathMatch: 'full',
-      },
       {
         path: 'createappointment',
         component: CreateAppointmentComponent,
+        canActivate: [UserGuard],
       },
       {
         path: 'viewappointment',
         component: ViewAppointmentsComponent,
+        canActivate: [UserGuard],
       },
       {
         path: 'verifyappointment',
         component: VerifyAppointmentComponent,
+        canActivate: [AdminGuard],
       },
       {
         path: 'updateappointments',
         component: UpdateAppointmentComponent,
+        canActivate: [AdminGuard],
       },
     ],
   },
   {
     path: 'testresult',
     component: TestResultComponent,
-
+    canActivate: [AdminGuard],
     children: [
       {
         path: 'add',
@@ -84,30 +101,7 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: 'patient',
-    component: PatientComponent,
-  },
-  {
-    path: 'Uapp',
-    component: UAppFormComponent,
-  },
-  {
-    path: 'UpdateEach',
-    component: UpdateEachComponent,
-  },
-  {
-    path: 'user',
-    component: UserComponent,
-  },
+
   {
     path: 'diagnosticCenter',
     redirectTo: 'diagnosticCenter/centerhome',
@@ -116,6 +110,7 @@ const routes: Routes = [
   {
     path: 'diagnosticCenter',
     component: DiagnosticcenterComponent,
+    canActivate: [AdminGuard],
     children: [
       { path: 'all', component: GetallcentersComponent },
       { path: 'centerhome', component: CenterhomeComponent },
@@ -134,9 +129,10 @@ const routes: Routes = [
   {
     path: 'diagnostictest',
     component: DiagnosticTestComponent,
+    canActivate: [AdminGuard],
     children: [
-      { path: 'all', component: AlltestsComponent },
-      { path: 'add', component: UpdateComponent },
+      { path: 'all', component: AllTestComponent },
+      { path: 'add', component: CreateComponent },
       { path: 'update/:diagnosticTestid', component: UpdateComponent },
       // { path: 'details/:id', component: TestDetailsComponent}
     ],

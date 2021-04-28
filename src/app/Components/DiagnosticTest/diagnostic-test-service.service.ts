@@ -24,7 +24,7 @@ export class DiagnosticTestServiceService {
   getTestById(diagonasticTestid: number): Observable<DiagnosticTest> {
     return this.httpClient
       .get<DiagnosticTest>(
-        this.url + '/DiagnosticTest/getDiagnosticTest/' + diagonasticTestid
+        this.url + '/DiagnosticTest/getTestById/' + diagonasticTestid
       )
       .pipe(catchError(this.handleError));
   }
