@@ -26,6 +26,7 @@ export class CreateAppointmentComponent implements OnInit {
   errormsg = '';
   validDate = true;
   hasProfile = true;
+  patID!: number;
   preDCtests!: DiagnosticTest[];
 
   constructor(
@@ -53,8 +54,14 @@ export class CreateAppointmentComponent implements OnInit {
     );
     this.patServ.getByUserID().subscribe(
       (data) => {
-        this.hasProfile = true;
-        if (data == null) this.hasProfile = false;
+        if (data == null) {
+          this.hasProfile = false;
+          this.routes.navigateByUrl('patient');
+        } else {
+          this.hasProfile = true;
+          this.patServ.Patient = data;
+          this.patID = data.patientId;
+        }
       },
       (error) => {
         this.hasProfile = false;
@@ -73,7 +80,8 @@ export class CreateAppointmentComponent implements OnInit {
           this.appform.get('appointmentDate')?.value,
           'statusnotapproved',
           this.appform.get('diagnosticCenter')?.value,
-          this.appform.get('diagnosticTests')?.value
+          this.appform.get('diagnosticTests')?.value,
+          this.patID
         )
         .subscribe(
           (data) => {
