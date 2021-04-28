@@ -12,6 +12,7 @@ import { TestResult } from '../Interfaces/TestResult';
   providedIn: 'root',
 })
 export class TestResultService {
+  [x: string]: any;
   private url = 'http://localhost:8888';
   httpOptions = {
     headers: new HttpHeaders({
