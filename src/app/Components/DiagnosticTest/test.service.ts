@@ -1,8 +1,7 @@
 import {
   HttpClient,
   HttpErrorResponse,
-  HttpHeaders,
-} from '@angular/common/http';
+  HttpHeaders,} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -12,7 +11,7 @@ import { DiagnosticTest } from 'src/app/Interfaces/DiagnosticTest';
   providedIn: 'root',
 })
 export class TestService {
-  private url = 'http://localhost:8888/DiagnosticTest';
+  private url = 'http://localhost:7576/DiagnosticTest';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
