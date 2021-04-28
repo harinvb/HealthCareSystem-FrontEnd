@@ -27,11 +27,9 @@ testresultForm:FormGroup;
 
 
   updateData() {
-    // this.test.testResultid = this.testResultid;
+    this.test.testResultid = this.testResultid;
     this.eService.updateTestResult(this.test).subscribe(res => {
       this.router.navigate(['/testresult/all'])
     });
   }
 }
-
-

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TestResult } from 'src/app/Interfaces/TestResult';
 import { TestResultService } from 'src/app/Services/TestResult.service';
 
-
-
 @Component({
   selector: 'app-all-testresult',
   templateUrl: './all-testresult.component.html',

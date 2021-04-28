@@ -17,23 +17,37 @@ export class UserService {
   }
 
   updateUser(user: User) {
+    console.log(user);
     return this.http
-      .put<User>('http://localhost:8888/user/updateUser', user)
+      .put<User>('http://localhost:8888/user/updateUser', {
+        username: user.username,
+        password: user.password,
+        userid: user.userid,
+      })
       .pipe(catchError(this.handleError), shareReplay());
   }
 
   registerAdmin(user: User) {
+    console.log(user);
     return this.http
-      .post<User>('http://localhost:8888/admin/registeradmin', user)
+      .post<User>('http://localhost:8888/admin/registeradmin', {
+        username: user.username,
+        password: user.password,
+        role: 'ADMIN',
+      })
       .pipe(catchError(this.handleError), shareReplay());
   }
   registerUser(user: User) {
     return this.http
-      .post<User>('http://localhost:8888/user/adduser', user)
+      .post<User>('http://localhost:8888/user/adduser', {
+        username: user.username,
+        password: user.password,
+      })
       .pipe(catchError(this.handleError), shareReplay());
   }
 
   deleteUser(id: number) {
+    console.log(id);
     return this.http
       .delete<User>('http://localhost:8888/admin/deleteAdmin/' + id)
       .pipe(catchError(this.handleError), shareReplay());
