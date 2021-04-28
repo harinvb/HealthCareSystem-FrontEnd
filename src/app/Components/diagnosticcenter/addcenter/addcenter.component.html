@@ -42,6 +42,9 @@
             <div >
                 <button type="submit" class="btn btn-warning" align="center"
                     [disabled]="!centerForm.valid"><i class="bi bi-plus-circle-fill"></i> Add Center</button>
+                    &nbsp;&nbsp;<button class="btn btn-warning"
+                    [routerLink]="['/diagnosticCenter/all']">
+                    <i class="bi bi-arrow-90deg-left"></i></button>
             </div>
           </form>
         </div>

@@ -1,13 +1,16 @@
-
-<div class="card border-primary mb-3" style="max-width: 36rem;"*ngFor="let t of tests">
+<div class="container">
+  <hr>
+  <div class="card border-primary mb-3" style="max-width: 36rem;" *ngFor="let t of tests">
     <div class="card-header bg-primary text-white" align="right">Test ID:{{t.diagonasticTestid}}</div>
     <div class="card-body text-info">
-        <img class="card-img" src="assets/blood test.jpg" alt="Card image">
-        <div class="card-img-overlay" >
-      <h4 class="card-title text-white" >{{t.testName}}</h4>
-      <p class="card-text">₹{{t.testPrice}}/-</p>
-      <p class="card-text">Normal Value: {{t.normalValue}}</p>
-      <p class="card-text">Units: {{t.units}}</p>
-    </div>
+      <div class="container" align="right">
+      <img class="card-img" src="assets/blood test.jpg" alt="Card image" style="float: right;"></div>
+      <div class="card-img-overlay">
+        <h4 class="card-title text-white">{{t.testName}}</h4>
+        <p class="card-text">Normal Value: {{t.normalValue}}</p>
+        <p class="card-text">Units: {{t.units}}</p>
+        <p class="card-text">₹{{t.testPrice}}/-</p>
+      </div>
     </div>
   </div>
+</div>

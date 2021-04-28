@@ -1,15 +1,18 @@
-
 <div class="container" align="center">
-  <div><h3>Add Test to your Diagnostic Center</h3></div>
+  <div>
+    <h3>Add Test to your Diagnostic Center</h3>
+  </div>
   <img class="card-img-top" src="assets/Blood test-bro.png" style="width: 400px; float: center;">
   <div class="form-group">
     <div class="btn-group">
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
         Select Test
       </button>
       <div class="dropdown-menu">
-        <button class="dropdown-item" *ngFor="let t of test" (click)="addTest(t.diagonasticTestid)">{{t.testName}}</button>
+        <button class="dropdown-item" *ngFor="let t of test"
+          (click)="addTest(t.diagonasticTestid)">{{t.testName}}</button>
       </div>
     </div>
-</div>
+  </div>
 </div>
