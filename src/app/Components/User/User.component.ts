@@ -55,5 +55,6 @@ export class UserComponent implements OnInit {
   childEvent(event: any) {
     if (this.logServ.Role == 'user') this.routes.navigateByUrl('login');
     else this.updateReq = false;
+    this.getAllUsers();
   }
 }
