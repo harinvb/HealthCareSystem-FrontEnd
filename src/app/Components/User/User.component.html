@@ -35,4 +35,5 @@
 <app-UserRegistrarion
   *ngIf="updateReq"
   [user]="presentUser"
+  (changeEvent)="childEvent($event)"
 ></app-UserRegistrarion>

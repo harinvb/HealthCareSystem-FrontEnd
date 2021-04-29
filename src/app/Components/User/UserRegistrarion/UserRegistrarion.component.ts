@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Interfaces/user';
@@ -12,12 +12,12 @@ import { UserService } from 'src/app/Services/User.service';
 })
 export class UserRegistrarionComponent implements OnInit {
   @Input('user') user!: User;
+  @Output('changeEvent') changeEvent: EventEmitter<User> = new EventEmitter();
   userForm!: FormGroup;
   constructor(
     private formBuild: FormBuilder,
     private userServ: UserService,
-    private logServ: LoginService,
-    private routes: Router
+    private logServ: LoginService
   ) {}
 
   ngOnInit() {
@@ -49,7 +49,7 @@ export class UserRegistrarionComponent implements OnInit {
         userU.role = this.userForm.get('role')?.value;
         this.userServ.registerAdmin(userU).subscribe(
           (data) => {
-            this.routes.navigateByUrl('/user');
+            this.changeEvent.emit(data);
           },
           (error) => {
             console.log(error);
@@ -62,7 +62,7 @@ export class UserRegistrarionComponent implements OnInit {
         userU.role = this.userForm.get('role')?.value;
         this.userServ.registerUser(userU).subscribe(
           (data) => {
-            this.routes.navigateByUrl('/user');
+            this.changeEvent.emit(data);
           },
           (error) => {
             console.log(error);
@@ -77,7 +77,7 @@ export class UserRegistrarionComponent implements OnInit {
       userU.userid = this.user.userid;
       this.userServ.updateUser(userU).subscribe(
         (data) => {
-          this.routes.navigateByUrl('/user');
+          this.changeEvent.emit(data);
         },
         (error) => {
           console.log(error);
