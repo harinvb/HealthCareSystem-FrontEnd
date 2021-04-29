@@ -19,8 +19,10 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    alert('You are About to be Logged Out');
-    this.log.logout();
+    if (this.loginStatus) {
+      alert('You are About to be Logged Out');
+      this.log.logout();
+    }
   }
 
   getLog() {
