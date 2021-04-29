@@ -30,6 +30,7 @@ import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcent
 import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
 import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { UserGuard } from './User.guard';
+import { AddtestComponent } from './Components/DiagnosticTest/addtest/addtest.component';
 
 const routes: Routes = [
   {
@@ -127,7 +128,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       { path: 'all', component: AllTestComponent },
-      { path: 'add', component: CreateComponent },
+      { path: 'add', component: AddtestComponent },
       { path: 'update/:diagnosticTestid', component: UpdateComponent },
       // { path: 'details/:id', component: TestDetailsComponent}
     ],
@@ -168,6 +169,7 @@ export const routingComponents = [
   AddtesttocenterComponent,
   DiagnosticTestComponent,
   AlltestsComponent,
+  AddtestComponent,
   UpdateComponent,
   TestResultComponent,
   AllTestresultComponent,
