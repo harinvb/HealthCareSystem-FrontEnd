@@ -17,18 +17,17 @@ export class UserService {
   }
 
   updateUser(user: User) {
-    console.log(user);
     return this.http
       .put<User>('http://localhost:8888/user/updateUser', {
         username: user.username,
         password: user.password,
         userid: user.userid,
+        role: user.role,
       })
       .pipe(catchError(this.handleError), shareReplay());
   }
 
   registerAdmin(user: User) {
-    console.log(user);
     return this.http
       .post<User>('http://localhost:8888/admin/registeradmin', {
         username: user.username,
@@ -42,12 +41,12 @@ export class UserService {
       .post<User>('http://localhost:8888/user/adduser', {
         username: user.username,
         password: user.password,
+        role: 'user',
       })
       .pipe(catchError(this.handleError), shareReplay());
   }
 
   deleteUser(id: number) {
-    console.log(id);
     return this.http
       .delete<User>('http://localhost:8888/admin/deleteAdmin/' + id)
       .pipe(catchError(this.handleError), shareReplay());

@@ -11,6 +11,7 @@ import { User } from '../../Interfaces/user';
 })
 export class LoginComponent implements OnInit {
   formgrp!: FormGroup;
+  errormsg: string = '';
   constructor(
     private log: LoginService,
     private routes: Router,
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
           }
         },
         (error) => {
-          console.log(error);
+          this.errormsg = error;
           this.log.Status = false;
         }
       );

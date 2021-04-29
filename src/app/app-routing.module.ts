@@ -30,7 +30,10 @@ import { GetallcentersComponent } from './Components/DiagnosticCenter/getallcent
 import { TestdetailsComponent } from './Components/DiagnosticCenter/testdetails/testdetails.component';
 import { UpdatecenterComponent } from './Components/DiagnosticCenter/updatecenter/updatecenter.component';
 import { UserGuard } from './User.guard';
-import { AddtestComponent } from './Components/DiagnosticTest/addtest/addtest.component';
+
+
+import { UserComponent } from './Components/User/User.component';
+import { UserRegistrarionComponent } from './Components/User/UserRegistrarion/UserRegistrarion.component';
 
 const routes: Routes = [
   {
@@ -51,7 +54,10 @@ const routes: Routes = [
     component: PatientComponent,
     canActivate: [UserGuard],
   },
-
+  {
+    path: 'user',
+    component: UserComponent,
+  },
   {
     path: 'appointment',
     component: AppointmentComponent,
@@ -176,4 +182,6 @@ export const routingComponents = [
   UpdatetestresultComponent,
   UpdatePatientComponent,
   AllTestComponent,
+  UserComponent,
+  UserRegistrarionComponent,
 ];
