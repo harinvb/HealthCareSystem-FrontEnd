@@ -1,6 +1,13 @@
 <div
   class="container rounded border shadow mycol animate__animated animate__fadeInDown animate__fast"
 >
+  <div
+    class="alert alert-danger animate__animated animate__fadeInUp mt-3 text-center"
+    role="alert"
+    *ngIf="errormsg.length > 1"
+  >
+    {{ errormsg }}
+  </div>
   <form [formGroup]="formgrp" (ngSubmit)="login()">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <img
