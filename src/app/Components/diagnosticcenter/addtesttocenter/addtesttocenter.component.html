@@ -12,7 +12,10 @@
       <div class="dropdown-menu">
         <button class="dropdown-item" *ngFor="let t of test"
           (click)="addTest(t.diagonasticTestid)">{{t.testName}}</button>
-      </div>
+          
+      </div>&nbsp;&nbsp;<button class="btn btn-warning"
+      [routerLink]="['/diagnosticCenter/all']">
+      <i class="bi bi-arrow-90deg-left"></i></button>
     </div>
   </div>
 </div>
