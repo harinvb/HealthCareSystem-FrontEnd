@@ -1,19 +1,18 @@
-/**import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DiagnosticTestServiceService } from '../diagnostic-test-service.service';
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  selector: 'app-addtest',
+  templateUrl: './addtest.component.html',
+  styleUrls: ['./addtest.component.css']
 })
-export class CreateComponent implements OnInit {
-  testForm!: FormGroup;
-  errorMessage!: string;
-  submitted=false;
-
-
+export class AddtestComponent implements OnInit {
+testForm!: FormGroup;
+errorMessage!: string;
+submitted=false;
+ 
   constructor(private fb: FormBuilder, private testService: DiagnosticTestServiceService,
     private router: Router) { }
 
