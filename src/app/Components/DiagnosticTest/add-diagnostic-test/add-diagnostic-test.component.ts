@@ -44,7 +44,7 @@ export class AddDiagnosticTestComponent implements OnInit {
     }
     addTest() {
       this.testService.addTest(this.testForm.value).subscribe(res => {
-        this.router.navigate(['DiagnosticTest/all']);
+        this.router.navigate(['diagnostictest/all']);
       },
         error => {
           this.errorMessage = error;

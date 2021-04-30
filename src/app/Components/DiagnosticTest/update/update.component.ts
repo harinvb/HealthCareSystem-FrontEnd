@@ -40,7 +40,7 @@ export class UpdateComponent implements OnInit {
   }
   updateDtest() {
     this.testService.updateTest(this.DiagnosticTest).subscribe((res) => {
-      this.router.navigate(['/DiagnosticTest/all/']);
+      this.router.navigate(['/diagnostictest/all/']);
     });
   }
 }
