@@ -1,29 +1,82 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a [routerLink]="['./all']">
-                <button type="button" class="btn btn-primary">
-                    <h5>AllTests</h5>
-                </button> |
-            </a>
-        </li>
-        <li class="nav-item">
-            <a [routerLink]="['./add']">
-                <button type="button" class="btn btn-primary">
-                    <h5>AddTest</h5>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="diagnostic-test.component.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<!--<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="https://pics.freeicons.io/uploads/icons/png/15211315791553239378-512.png" class="menu-icon">
+
+            <nav>
+                <ul>
+                    <li>
+                        <a [routerLink]="['./all']">
+                            <h5>AllTests</h5></a>
+                        </li>
+                    <li>
+                        <a [routerLink]="['./add']">
+                            <h5>AddTest</h5></a>
+                </ul>
+            </nav>
+        </div>
+        
+    </div>
+</body>-->
+
+</html>
+
+
+<nav class="navbar.navbar-expand.navbar-dark.flex-column.flex-md-row.bd-navbar">
+<table class="navigationbar" style="background-color: blueviolet;">
+    <tr>
+        <td>
+           <img src="https://www.corporatejuicebox.com/Images/Icons/white_hamburger.png" style="width: 35px;padding-left:5px;" >
+            &nbsp;
+        </td>
+        <td>            
+                <a class="navigation" [routerLink]="['./all']">
+                    <button type ="button" class="btn btn-primary" style ="background-color:#FFFF;color: black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: bold; width: 80px; height:35px ;"> 
+                        All Tests
+                    </button>
+                </a>                
+             &nbsp;
+        </td>
+        <td>            
+            <a class="navigation" [routerLink]="['./add']">
+                <button type ="button" class="btn btn-primary" style ="background-color:#FFFF;color: black; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: bold; width: 80px; height:35px ;"> 
+                    Add Test
                 </button>
-            </a>
+            </a>                
+         &nbsp;
+    </td>
 
-        </li>
-    </ul>
+        
+    </tr>
+</table>
 
+
+
+
+
+
+    <!--<ul class="navbar-nav" style="background-color: blueviolet;"> 
+           <li  class="nav-item">
+            <a class="nav-link p-2" [routerLink]="['./all']"> 
+                <img src="C:\Users\karth\Desktop">
+                 &nbsp;
+            
+            </a> </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" [routerLink]="['./add']">
+                    
+                </a>
+            </li>
+
+                                                                                          
+    </ul>-->
 </nav>
-
-<div class="container">
-    <br>
-
-    <h2 style="text-align: center;">Diagnostic Tests</h2>
-    <hr>
-
-    <hr>
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>

@@ -10,6 +10,7 @@ import { DiagnosticTestServiceService } from '../diagnostic-test-service.service
 })
 export class AllTestComponent implements OnInit {
   DiagnosticTest!: DiagnosticTest[];
+  searchedKeyword!:string;
   constructor(
     private testService: DiagnosticTestServiceService,
     private router: Router
