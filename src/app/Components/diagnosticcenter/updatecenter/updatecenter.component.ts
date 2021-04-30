@@ -21,18 +21,6 @@ export class UpdatecenterComponent implements OnInit {
       this.center=data;
     })
   }
-  // get contactEmail(){
-  //   return this.centerForm.get('contactEmail');
-  // }
-  // get contactNo(){
-  //   return this.centerForm.get('contactNo');
-  // }
-  // get address(){
-  //   return this.centerForm.get('address');
-  // }
-  // get name(){
-  //   return this.centerForm.get('name');
-  // }
   updateDcenter(){
     this.centerService.updateCenter(this.center).subscribe(res=>{
       this.router.navigate(['diagnosticCenter/all']);

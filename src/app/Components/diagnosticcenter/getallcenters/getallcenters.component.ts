@@ -33,9 +33,14 @@ export class GetallcentersComponent implements OnInit {
     });
   }
   removeCenter(id: number) {
-    this.centerService.deleteCenter(id).subscribe((data: DiagnosticCenter) => {
-      this.getAllCenters();
+    if (confirm("Are you sure you want to Delete?")) {
+      this.centerService.deleteCenter(id).subscribe((data: DiagnosticCenter) => {
+        this.getAllCenters();
+        this.router.navigate(['diagnosticCenter/all']);
+      });
+    } else {
       this.router.navigate(['diagnosticCenter/all']);
-    });
+    }
+    
   }
 }

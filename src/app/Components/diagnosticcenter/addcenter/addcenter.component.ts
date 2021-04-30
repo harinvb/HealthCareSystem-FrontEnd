@@ -19,7 +19,7 @@ export class AddcenterComponent implements OnInit {
       name: ['', Validators.required],
       contactNo: ['', Validators.required],
       address: ['', Validators.required],
-      contactEmail: [''],
+      contactEmail: ['', Validators.required],
 
     })
   }
