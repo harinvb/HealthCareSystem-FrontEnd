@@ -16,13 +16,17 @@ export class AppointmentComponent implements OnInit {
   appointments!: Appointment[];
   hasAppointments = false;
   appstat!: AppointmentStatus;
+  firstTime = true;
   constructor(private logServ: LoginService, private routes: Router) {}
 
   ngOnInit() {
     if (this.logServ.Status) {
       if (this.logServ.Role == 'user')
         this.routes.navigateByUrl('appointment/viewappointment');
-      else this.routes.navigateByUrl('appointment/verifyappointment');
+      else if (this.firstTime) {
+        this.routes.navigateByUrl('appointment/verifyappointment');
+        this.firstTime = false;
+      }
     } else {
       this.routes.navigateByUrl('login');
     }
