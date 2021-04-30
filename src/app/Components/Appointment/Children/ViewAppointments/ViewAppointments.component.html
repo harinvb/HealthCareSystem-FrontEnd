@@ -34,19 +34,9 @@
       </div>
       <div class="col">Address : {{ i.diagnosticCenter.address }}</div>
     </div>
+
     <div
       class="card-footer"
-      *ngIf="check(i.approvalStatus) == 2 && i.testResult.length > 0"
-    >
-      <h5 class="card-title">Tests Results :</h5>
-      <div class="row" *ngFor="let tr of i.testResult">
-        <div class="col-4">{{ tr.testName }}</div>
-        <div class="col-4">Reading : {{ tr.testReading }}</div>
-        <div class="col-4">Condition : {{ tr.testcondition }}</div>
-      </div>
-    </div>
-    <div
-      class="card-body"
       *ngIf="i.diagnosticTests != null && i.diagnosticTests.length > 0"
     >
       <h5 class="card-title">Tests Opted For :</h5>
@@ -55,6 +45,17 @@
         <div class="col-3">units: {{ dt.units }}</div>
         <div class="col-3">Normal Value : {{ dt.normalValue }}</div>
         <div class="col-3">Test Price : {{ dt.testPrice }}</div>
+      </div>
+    </div>
+    <div
+      class="card-body"
+      *ngIf="check(i.approvalStatus) == 2 && i.testResult.length > 0"
+    >
+      <h5 class="card-title">Tests Results :</h5>
+      <div class="row" *ngFor="let tr of i.testResult">
+        <div class="col-4">{{ tr.testName }}</div>
+        <div class="col-4">Reading : {{ tr.testReading }}</div>
+        <div class="col-4">Condition : {{ tr.testcondition }}</div>
       </div>
     </div>
   </div>
