@@ -13,22 +13,7 @@ import { AppointmentStatus } from '../../Interfaces/AppointmentStatus.enum';
   styleUrls: ['./Appointment.component.css'],
 })
 export class AppointmentComponent implements OnInit {
-  appointments!: Appointment[];
-  hasAppointments = false;
-  appstat!: AppointmentStatus;
-  firstTime = true;
-  constructor(private logServ: LoginService, private routes: Router) {}
+  constructor() {}
 
-  ngOnInit() {
-    if (this.logServ.Status) {
-      if (this.logServ.Role == 'user')
-        this.routes.navigateByUrl('appointment/viewappointment');
-      else if (this.firstTime) {
-        this.routes.navigateByUrl('appointment/verifyappointment');
-        this.firstTime = false;
-      }
-    } else {
-      this.routes.navigateByUrl('login');
-    }
-  }
+  ngOnInit() {}
 }
