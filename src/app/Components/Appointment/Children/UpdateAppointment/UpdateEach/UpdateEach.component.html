@@ -48,9 +48,12 @@
     {{ dt.testName | filter: search }}
   </div>
 </div>
-<div class="card-footer" *ngIf="appointment.testResult.length > 0">
+<div class="card-body" *ngIf="appointment.testResult.length > 0">
   <h5 class="card-title">Tests Results :</h5>
-  <div class="row" *ngFor="let tr of appointment.testResult">
+  <div
+    class="row p-1 justify-content-center"
+    *ngFor="let tr of appointment.testResult"
+  >
     <div class="col-3">{{ tr.testName }}</div>
     <div class="col-3">Reading : {{ tr.testReading }}</div>
     <div class="col-3">Condition : {{ tr.testcondition }}</div>
