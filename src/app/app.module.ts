@@ -14,7 +14,6 @@ import { DiagnosticTestService } from './Services/DiagnosticTest.service';
 import { TestResultComponent } from './Components/TestResult/TestResult.component';
 import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
 import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
-import { CreateComponent } from './Components/TestResult/create/create.component';
 import { AddDiagnosticTestComponent } from './Components/DiagnosticTest/add-diagnostic-test/add-diagnostic-test.component';
 
 @NgModule({

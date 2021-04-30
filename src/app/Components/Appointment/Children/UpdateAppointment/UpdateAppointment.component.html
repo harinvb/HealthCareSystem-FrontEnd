@@ -25,7 +25,9 @@
     class="card mb-5 rounded border shadow-sm"
     *ngFor="let i of appointments | filter: search"
   >
-    <app-UpdateEach [appointment]="i"></app-UpdateEach>
+    <div *ngIf="check(i.approvalStatus) == 2">
+      <app-UpdateEach [appointment]="i"></app-UpdateEach>
+    </div>
   </div>
 </div>
 

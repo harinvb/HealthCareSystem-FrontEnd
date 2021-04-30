@@ -60,4 +60,10 @@ export class UpdateAppointmentComponent implements OnInit {
     this.getAll = !this.getAll;
     this.fetchApps();
   }
+
+  check(stat: any) {
+    if (stat == 'statusnotapproved') return 1;
+    else if (stat == 'cancelled') return 0;
+    else return 2;
+  }
 }

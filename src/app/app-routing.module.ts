@@ -14,7 +14,7 @@ import { UpdateAppointmentComponent } from './Components/Appointment/Children/Up
 import { UAppFormComponent } from './Components/Appointment/Children/UpdateAppointment/UAppForm/UAppForm.component';
 import { UpdateEachComponent } from './Components/Appointment/Children/UpdateAppointment/UpdateEach/UpdateEach.component';
 import { AlltestsComponent } from './Components/DiagnosticTest/alltests/alltests.component';
-import { CreateComponent } from './Components/TestResult/create/create.component';
+import { CreateTestResultComponent } from './Components/TestResult/create/create.component';
 import { AllTestresultComponent } from './Components/TestResult/all-testresult/all-testresult.component';
 import { UpdatetestresultComponent } from './Components/TestResult/updatetestresult/updatetestresult.component';
 import { DiagnosticTestComponent } from './Components/DiagnosticTest/diagnostic-test.component';
@@ -89,8 +89,8 @@ const routes: Routes = [
     canActivate: [AdminGuard],
     children: [
       {
-        path: 'add',
-        component: CreateComponent,
+        path: 'addTestResult',
+        component: CreateTestResultComponent,
       },
       {
         path: 'all',
@@ -155,7 +155,7 @@ export const routingComponents = [
   HomeComponent,
   NoPageComponent,
   TestResultComponent,
-  CreateComponent,
+  CreateTestResultComponent,
   PatientComponent,
   AppointmentComponent,
   CreateAppointmentComponent,
@@ -174,7 +174,6 @@ export const routingComponents = [
   AddtesttocenterComponent,
   DiagnosticTestComponent,
   AlltestsComponent,
-  AddDiagnosticTestComponent,
   UpdateComponent,
   TestResultComponent,
   AllTestresultComponent,
